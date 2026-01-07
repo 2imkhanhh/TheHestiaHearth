@@ -1,0 +1,1298 @@
+:root {
+    --primary-bg: #5E4032;
+    --text-color: #F7F4EF;
+    --font-main: 'Cinzel', serif;
+}
+
+html,
+body {
+    font-family: var(--font-main);
+    color: #333;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+}
+
+.main-header {
+    background-color: var(--primary-bg);
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-img {
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-list-custom .nav-link {
+    color: var(--text-color) !important;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px !important;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-list-custom .nav-link::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background-image: url('../images/underline.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-list-custom .nav-link.active::after,
+.nav-list-custom .nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-list-custom .nav-link:hover,
+.nav-list-custom .nav-link.active {
+    color: var(--text-color) !important;
+}
+
+.btn-reserve {
+    background-color: var(--text-color);
+    color: var(--primary-bg);
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-reserve:hover {
+    background-color: #e6e2db;
+    transform: translateY(-2px);
+    color: var(--primary-bg);
+}
+
+/* --- Hero Section Styles --- */
+.hero-section {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-indicators {
+    position: absolute;
+    bottom: 80px;
+    left: 8%;
+    display: flex;
+    gap: 15px;
+    z-index: 2;
+}
+
+.diamond {
+    width: 10px;
+    height: 10px;
+    background-color: #998773;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.content-wrapper {
+    background-color: #F9F7F2;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- About Section --- */
+.about-section {
+    padding-top: 80px;
+    padding-bottom: 150px;
+    position: relative;
+    background-color: #F7F4EF;
+}
+
+.top-border-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(calc(-100% + 2px));
+    line-height: 0;
+    z-index: 25;
+    pointer-events: none;
+}
+
+.top-border-decor img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.01);
+    transform-origin: bottom;
+}
+
+.section-title {
+    font-family: var(--font-main);
+    color: #65432A;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.about-desc {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    text-align: justify;
+    max-width: 90%;
+}
+
+/* Nút See More */
+.btn-see-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1A1A1A;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width: 200px;
+    transition: all 0.3s;
+}
+
+.btn-see-more:hover {
+    background-color: #5E4032;
+    color: #fff;
+}
+
+.diamond-icon {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.arrow-icon {
+    margin-left: auto;
+}
+
+.arch-bg {
+    position: absolute;
+    top: auto;
+    bottom: -140px;
+    left: 50px;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    z-index: 1;
+}
+
+.arch-img {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    margin-top: 0;
+    transform: translate(40px, 250px);
+}
+
+.grand-opening-section {
+    position: relative;
+    z-index: 5;
+    padding-top: 350px;
+    padding-bottom: 100px;
+    color: #fff;
+    margin-top: -120px;
+    background-color: transparent;
+    clip-path: none;
+}
+
+.grand-opening-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #65432A;
+    clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 100%);
+    z-index: -1;
+}
+
+.grand-title {
+    font-family: 'Cinzel', serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0;
+}
+
+.discount-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: #fff;
+}
+
+.discount-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.discount-text::before,
+.discount-text::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #fff;
+}
+
+.decor-line {
+    font-size: 30px;
+}
+
+.promo-badge {
+    background-color: #1A1A1A;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.floating-dishes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.dish {
+    position: absolute;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    width: auto;
+}
+
+.dish-1 {
+    top: 20%;
+    left: 0;
+    width: 250px;
+}
+
+.dish-2 {
+    top: -2%;
+    left: 20%;
+    width: 250px;
+}
+
+.dish-3 {
+    top: 15%;
+    left: 42%;
+    transform: translateX(-50%);
+    width: 280px;
+    z-index: 12;
+}
+
+.dish-4 {
+    top: 25%;
+    left: 70%;
+    width: 150px;
+}
+
+.dish-5 {
+    top: 5%;
+    right: 0;
+    width: 260px;
+}
+
+.signature-section {
+    background-color: #F9F7F2;
+    padding-top: 50px;
+    padding-bottom: 0;
+    position: relative;
+    z-index: 10;
+}
+
+#signatureRow {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    border-left: 2px solid #5E4032;
+    padding-left: 0;
+}
+
+.signature-item {
+    flex: 0 0 auto;
+    width: 33.33333%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signature-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5E4032;
+    margin-bottom: 50px;
+}
+
+.slider-container {
+    position: relative;
+    border-top: none;
+    border-bottom: none;
+    align-items: stretch;
+}
+
+.slider-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 2px;
+    background-color: #5E4032;
+    z-index: 1;
+}
+
+.border-col {
+    border-right: 2px solid #5E4032;
+    border-left: none;
+    margin-left: 0;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.decor-line-long {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #000000;
+    max-width: 800px;
+}
+
+.star-decor img {
+    width: 40px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.star-decor {
+    margin: 0 -2px;
+    display: flex;
+    align-items: center;
+}
+
+.signature-card {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 0;
+    max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    height: calc(100% - 100px);
+    transition: transform 0.3s ease;
+}
+
+.signature-card:hover {
+    transform: translateY(-5px);
+    /* Hiệu ứng bay lên nhẹ khi hover */
+}
+
+/* Phần chứa ảnh món ăn (Nổi lên trên) */
+.card-dish-img {
+    position: absolute;
+    top: -60px;
+    /* Kéo ảnh lên trên khỏi khung card */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    /* Kích thước ảnh món ăn */
+    height: auto;
+    z-index: 5;
+    /* Tạo hiệu ứng bóng đổ cho món ăn */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+.card-dish-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Khung nội dung bên dưới */
+.card-inner {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #EBE5CE;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top-brown {
+    height: 80px;
+    background-color: #65432A;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.card-body-beige {
+    padding: 10px 20px 30px;
+    /* Padding bottom 30px để nút cách đáy 1 chút */
+    text-align: center;
+    color: #1A1A1A;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dish-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    color: #1A1A1A;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Đường gạch ngang nhỏ dưới tên món */
+.dish-divider {
+    width: 100%;
+    height: 2px;
+    background-color: #5E4032;
+    margin: 0 auto 15px;
+    opacity: 0.5;
+}
+
+.dish-desc {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 25px;
+    min-height: auto;
+}
+
+/* Nút Order Now */
+.btn-order-now {
+    margin-top: auto;
+    display: inline-block;
+    background-color: #1A1A1A;
+    color: #fff;
+    padding: 10px 0;
+    /* Padding trên dưới, bỏ trái phải để set width */
+    width: 80%;
+    /* Nút dài ra dạng viên thuốc */
+    margin-left: auto;
+    margin-right: auto;
+    /* Căn giữa nút */
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-order-now:hover {
+    background-color: #5E4032;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.btn-slider {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1A1A1A;
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-slider:hover {
+    background-color: #5E4032;
+}
+
+.btn-slider:active {
+    transform: scale(0.9);
+}
+
+.warm-hearth-section {
+    background-color: #1A1A1A;
+    /* Màu nền đen xám */
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    /* Để cắt bớt phần họa tiết 2 bên bị thừa */
+    color: #F7F4EF;
+    /* Màu chữ trắng kem */
+}
+
+.hearth-title {
+    font-family: var(--font-main);
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hearth-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.hearth-divider img {
+    width: 100%;
+    /* Chiếm 90% chiều rộng container để có lề 2 bên */
+    max-width: 1000px;
+    /* Giới hạn độ dài tối đa để không quá to trên màn hình lớn */
+    height: auto;
+    /* Giữ nguyên tỉ lệ ảnh */
+    display: block;
+}
+
+/* 3. Đoạn văn mô tả */
+.hearth-desc {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-style: italic;
+    /* Chữ nghiêng như trong ảnh */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    /* Màu chữ xám nhạt hơn tiêu đề chút */
+    margin: 0 auto;
+}
+
+/* 4. Họa tiết trang trí 2 bên (Hình viên thuốc rỗng) */
+.decor-pill {
+    position: absolute;
+    top: 50%;
+    width: 300px;
+    height: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px;
+    pointer-events: none;
+}
+
+.decor-left {
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.decor-right {
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.reservation-section {
+    background-color: #65432A;
+    /* Màu nâu đậm nền */
+    padding: 100px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Thẻ chứa form (Màu kem) */
+.reservation-card {
+    background-color: #F7F4EF;
+    border-radius: 15px;
+    padding: 60px 80px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Tiêu đề */
+.reservation-title {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Trang trí 2 bên mép (Hình thoi đen) */
+.card-decor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    /* Kích thước icon */
+    height: 40px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ẩn icon lịch mặc định */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+
+.card-decor img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.decor-left {
+    left: -20px;
+}
+
+.decor-right {
+    right: -20px;
+}
+
+/* --- Form Styling --- */
+.form-label-custom {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1A1A1A;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.text-danger {
+    color: #A94442 !important;
+    font-weight: bold;
+}
+
+.form-control-custom {
+    background-color: #F2EFE9;
+    border: 1px solid #8C8C8C;
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-shadow: none;
+    transition: all 0.3s;
+}
+
+.form-control-custom:focus {
+    background-color: #fff;
+    border-color: #1A1A1A;
+    box-shadow: none;
+}
+
+.form-control-custom::placeholder {
+    color: #999;
+    font-size: 13px;
+}
+
+select.form-control-custom {
+    appearance: none;
+
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+.btn-check-availability {
+    display: block;
+    width: 100%;
+    background-color: #1A1A1A;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-check-availability:hover {
+    background-color: #5E4032;
+    color: #fff;
+}
+
+.main-footer {
+    background-color: #161616;
+    color: #fff;
+    padding-top: 80px;
+    font-size: 14px;
+}
+
+.footer-logo img {
+    max-width: 180px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-desc {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: #F7F4EF;
+    line-height: 1.6;
+    font-size: 13px;
+    max-width: 90%;
+}
+
+.btn-footer-reserve {
+    display: inline-block;
+    background-color: #F7F4EF;
+    color: #1A1A1A;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+.btn-footer-reserve:hover {
+    background-color: #A69177;
+    color: #fff;
+}
+
+.footer-heading {
+    font-family: 'Cinzel', serif;
+    color: #988771;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 2px;
+    background-color: #988771;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.footer-links li,
+.opening-hours li,
+.contact-info li {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    margin-bottom: 12px;
+    color: #F7F4EF;
+}
+
+.footer-links a {
+    color: #F7F4EF;
+    text-decoration: none;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 13px;
+    transition: color 0.3s;
+    text-transform: uppercase;
+}
+
+.footer-links a:hover {
+    color: #A69177;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: #F7F4EF;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.contact-info i {
+    color: #F7F4EF;
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.btn-call-now {
+    display: inline-block;
+    background-color: #F7F4EF;
+    color: #1A1A1A;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 6px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: all 0.3s;
+}
+
+.btn-call-now:hover {
+    background-color: #A69177;
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: transform 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.social-link.fb {
+    background-color: #1877F2;
+}
+
+.social-link.tiktok {
+    background-color: #000;
+    border: 1px solid #333;
+}
+
+.social-link.insta {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.happy-hour-info p {
+    margin-bottom: 5px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #F7F4EF;
+}
+
+.copyright-bar {
+    background-color: #5E4032;
+    padding: 10px 0;
+    margin-top: 60px;
+    font-size: 12px;
+    color: #F7F4EF;
+    font-family: sans-serif;
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh !important;
+        background-color: #5E4032;
+        z-index: 9999;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        padding-top: 80px;
+        padding-left: 30px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        visibility: hidden;
+    }
+
+    .navbar-collapse.show {
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    .navbar-collapse.collapsing {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh !important;
+        background-color: #5E4032;
+        z-index: 9999;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        padding-top: 80px;
+        padding-left: 30px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        visibility: visible;
+    }
+
+    .btn-close-menu {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: none;
+        border: none;
+        font-size: 60px;
+        line-height: 1;
+        color: #fff;
+        z-index: 10000;
+        transition: transform 0.3s;
+    }
+
+    .btn-close-menu:hover {
+        transform: rotate(90deg);
+    }
+
+    .nav-list-custom {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .nav-list-custom .nav-item {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-list-custom .nav-link {
+        color: #ffffff !important;
+        font-size: 20px;
+        margin-bottom: 0;
+        padding: 15px 0;
+        display: block;
+        font-weight: 400;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+    }
+
+    .nav-list-custom .nav-link.active {
+        font-weight: 800 !important;
+        opacity: 1;
+    }
+
+    .nav-list-custom .nav-link::after,
+    .nav-list-custom .nav-link.active::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .hero-indicators {
+        bottom: 26px;
+        left: 9%;
+        gap: 6px;
+    }
+
+    .diamond {
+        width: 6px;
+        height: 6px;
+    }
+
+    .about-section {
+        padding-top: 30px;
+        padding-bottom: 0 !important;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .about-desc {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .btn-see-more {
+        padding: 10px 15px;
+        font-size: 12px;
+        width: 180px;
+    }
+
+    .about-section .col-lg-6 {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-end !important;
+
+        position: relative;
+        margin-top: 40px !important;
+        padding: 0 !important;
+        width: 100% !important;
+        min-height: 350px;
+        z-index: auto !important;
+    }
+
+    /* 2. CÁI VÒM (Nằm dưới cùng - Layer 1) */
+    .arch-bg {
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+        display: block;
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        bottom: 0 !important;
+        margin: 0 auto !important;
+
+        z-index: 1;
+        /* Thấp nhất */
+    }
+
+    /* 3. BACKGROUND NÂU (Nằm giữa - Layer 5) */
+
+
+    /* 4. BÁT PHỞ (Nằm trên cùng - Layer 20) */
+    .arch-img {
+        position: absolute !important;
+
+        /* Cao nhất, đè lên tất cả */
+        z-index: 20;
+
+        left: 50%;
+        bottom: 0;
+        top: auto !important;
+
+        /* Chỉnh lại vị trí cho khớp */
+        transform: translate(-50%, 10%) !important;
+
+        margin: 0 !important;
+        width: 65%;
+        max-width: 240px;
+    }
+
+    .grand-opening-section {
+        position: relative;
+
+        /* Layer cao hơn cái Vòm (1) nhưng thấp hơn bát Phở (20) */
+        z-index: 5 !important;
+
+        /* Kéo lên để đè vào chân cái vòm */
+        margin-top: -80px !important;
+        /* Tăng lên -80px để che được nhiều hơn */
+
+        padding-top: 320px;
+    }
+
+    .floating-dishes {
+        display: block !important;
+        /* Hiện lại trên mobile */
+        position: absolute;
+        /* Để nó phủ lên toàn bộ khu vực nền nâu */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 15;
+        /* Nằm trên nền nâu (z-5) nhưng dưới bát phở chính (z-20) */
+        pointer-events: none;
+        /* Để không chặn click vào chữ bên dưới */
+        margin: 0;
+        /* Reset margin cũ */
+        padding: 0;
+    }
+
+    /* 2. Style chung cho các đĩa (TO RA) */
+    .floating-dishes .dish {
+        position: absolute !important;
+        /* Cho phép bay tự do */
+        height: auto;
+        /* Tăng kích thước cơ bản lên, và thêm bóng đổ đậm hơn để tạo chiều sâu */
+        filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.3));
+    }
+
+    /* --- 3. ĐỊNH VỊ TỪNG ĐĨA (NẰM RẢI RÁC) --- */
+    /* Bạn có thể tùy chỉnh các thông số top/left/right/width ở đây để dời vị trí theo ý thích */
+
+    /* Đĩa 1: Thịt bò (Góc trên trái) */
+    .dish-1 {
+        top: 5%;
+        left: -30px;
+        /* Hơi thụt vào mép trái */
+        width: 150px;
+        /* To ra */
+        transform: rotate(-15deg);
+        /* Xoay nhẹ cho tự nhiên */
+    }
+
+    /* Đĩa 2: Súp gà (Góc trên phải) */
+    .dish-2 {
+        top: 14%;
+        left: 30%;
+        width: 160px;
+    }
+
+    /* Đĩa 3: Nem cuốn (Ở giữa, gần tiêu đề) */
+    .dish-3 {
+        top: 30%;
+        /* Nằm dưới chữ Grand Opening một chút */
+        left: 65%;
+        transform: translateX(-60%) rotate(5deg);
+        /* Căn giữa và xoay nhẹ */
+        width: 180px;
+        /* Đĩa này cho to nhất */
+    }
+
+    /* Đĩa 4: Chén sốt (Góc dưới trái) */
+    .dish-4 {
+        top: 30%;
+        left: 10%;
+        width: 100px;
+        /* Chén sốt thì nhỏ hơn chút */
+    }
+
+    /* Đĩa 5: Chảo nóng (Góc dưới phải) */
+    .dish-5 {
+        bottom: 25%;
+        right: 0;
+        width: 160px;
+    }
+
+    /* Điều chỉnh lại padding của phần chữ để không bị các đĩa che mất quá nhiều */
+    .content-promo {
+        position: relative;
+        z-index: 16;
+        /* Chữ nổi lên trên các đĩa phụ */
+        padding-top: 50px;
+        /* Tạo khoảng trống phía trên */
+    }
+
+    .discount-text {
+        gap: 10px;
+        font-size: 22px;
+    }
+
+    .decor-line {
+        font-size: 25px;
+    }
+
+    .signature-item {
+        width: 100% !important;
+        /* Mobile: 1 món */
+        flex: 0 0 100% !important;
+        border-right: none;
+        /* Bỏ border ngăn cách nếu muốn nhìn thoáng hơn */
+    }
+
+    /* Thu nhỏ nút bấm trên mobile cho đỡ chiếm chỗ */
+    .btn-slider {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    /* hiệu ứng nhấn nhẹ (không đổi màu) */
+    .btn-slider:active {
+        background-color: #5E4032;
+        transform: scale(0.92);
+    }
+
+    /* ✅ CHỈ reset focus KHI ĐÃ THẢ TAY */
+    .btn-slider:focus:not(:active),
+    .btn-slider:focus-visible:not(:active) {
+        background-color: #1A1A1A;
+        color: #fff;
+        box-shadow: none;
+        outline: none;
+    }
+
+    #signatureRow {
+        border-left: none !important;
+        /* Tắt gạch trái của hàng */
+    }
+
+    .border-col {
+        border-right: none !important;
+        /* Tắt gạch phải của cột */
+    }
+
+    /* Bước 2: Bật đường kẻ tĩnh cho khung cửa sổ (Luôn cố định 2 bên) */
+    .signature-slider-window {
+        border-left: 2px solid #5E4032;
+        /* Gạch dọc trái */
+        border-right: 2px solid #5E4032;
+        /* Gạch dọc phải */
+
+        /* Tùy chọn: Bo góc nhẹ nếu muốn khung mềm mại hơn */
+        /* border-radius: 4px; */
+    }
+
+    .warm-hearth-section {
+        padding: 40px 0;
+    }
+
+    .hearth-title {
+        font-size: 36px;
+    }
+
+    .decor-pill {
+        width: 150px;
+        height: 100px;
+        top: 65%;
+    }
+
+    .reservation-section {
+        padding: 50px 0;
+    }
+
+    .reservation-card {
+        padding: 30px 20px;
+    }
+
+    .reservation-title {
+        font-size: 30px;
+    }
+
+    .card-decor img {
+        width: 30px;
+        height: 30px;
+    }
+}
