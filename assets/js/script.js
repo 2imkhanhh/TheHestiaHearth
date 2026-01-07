@@ -61,6 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.querySelectorAll('.btn-slider').forEach(btn => {
+    btn.addEventListener('touchend', () => {
+        btn.blur();
+    });
+
+    btn.addEventListener('mouseup', () => {
+        btn.blur();
+    });
+});
+
 function openDatePicker() {
     const dateInput = document.getElementById('reservationDate');
     dateInput.focus();

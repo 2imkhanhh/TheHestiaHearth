@@ -1236,12 +1236,10 @@ select.form-control-custom {
     }
 
     /* ✅ CHỈ reset focus KHI ĐÃ THẢ TAY */
-    .btn-slider:focus:not(:active),
-    .btn-slider:focus-visible:not(:active) {
-        background-color: #1A1A1A;
-        color: #fff;
-        box-shadow: none;
+    .btn-slider:focus,
+    .btn-slider:focus-visible {
         outline: none;
+        box-shadow: none;
     }
 
     #signatureRow {
