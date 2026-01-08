@@ -1437,8 +1437,8 @@ select.form-control-custom {
 
     .btn-close-menu {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 10px;
+        right: 5px;
         background: none;
         border: none;
         font-size: 60px;
