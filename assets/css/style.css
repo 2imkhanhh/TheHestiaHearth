@@ -12,12 +12,16 @@ body {
     overflow-x: hidden;
     position: relative;
     margin: 0;
+    padding-top: 30px;
 }
 
 .main-header {
     background-color: var(--primary-bg);
-    position: relative;
-    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
 }
 
 .logo-img {
@@ -84,7 +88,7 @@ body {
     color: var(--primary-bg);
 }
 
-/* --- Hero Section Styles --- */
+/* --- Hero Section --- */
 .hero-section {
     position: relative;
     height: 100%;
@@ -166,7 +170,6 @@ body {
     max-width: 90%;
 }
 
-/* Nút See More */
 .btn-see-more {
     display: inline-flex;
     align-items: center;
@@ -430,21 +433,16 @@ body {
 
 .signature-card:hover {
     transform: translateY(-5px);
-    /* Hiệu ứng bay lên nhẹ khi hover */
 }
 
-/* Phần chứa ảnh món ăn (Nổi lên trên) */
 .card-dish-img {
     position: absolute;
     top: -60px;
-    /* Kéo ảnh lên trên khỏi khung card */
     left: 50%;
     transform: translateX(-50%);
     width: 200px;
-    /* Kích thước ảnh món ăn */
     height: auto;
     z-index: 5;
-    /* Tạo hiệu ứng bóng đổ cho món ăn */
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
 }
 
@@ -454,7 +452,6 @@ body {
     object-fit: contain;
 }
 
-/* Khung nội dung bên dưới */
 .card-inner {
     border-radius: 20px;
     overflow: hidden;
@@ -473,7 +470,6 @@ body {
 
 .card-body-beige {
     padding: 10px 20px 30px;
-    /* Padding bottom 30px để nút cách đáy 1 chút */
     text-align: center;
     color: #1A1A1A;
     flex: 1;
@@ -494,7 +490,6 @@ body {
     justify-content: center;
 }
 
-/* Đường gạch ngang nhỏ dưới tên món */
 .dish-divider {
     width: 100%;
     height: 2px;
@@ -512,19 +507,15 @@ body {
     min-height: auto;
 }
 
-/* Nút Order Now */
 .btn-order-now {
     margin-top: auto;
     display: inline-block;
     background-color: #1A1A1A;
     color: #fff;
     padding: 10px 0;
-    /* Padding trên dưới, bỏ trái phải để set width */
     width: 80%;
-    /* Nút dài ra dạng viên thuốc */
     margin-left: auto;
     margin-right: auto;
-    /* Căn giữa nút */
     border-radius: 50px;
     text-decoration: none;
     font-family: 'Cinzel', serif;
@@ -565,13 +556,10 @@ body {
 
 .warm-hearth-section {
     background-color: #1A1A1A;
-    /* Màu nền đen xám */
     padding: 100px 0;
     position: relative;
     overflow: hidden;
-    /* Để cắt bớt phần họa tiết 2 bên bị thừa */
     color: #F7F4EF;
-    /* Màu chữ trắng kem */
 }
 
 .hearth-title {
@@ -592,27 +580,20 @@ body {
 
 .hearth-divider img {
     width: 100%;
-    /* Chiếm 90% chiều rộng container để có lề 2 bên */
     max-width: 1000px;
-    /* Giới hạn độ dài tối đa để không quá to trên màn hình lớn */
     height: auto;
-    /* Giữ nguyên tỉ lệ ảnh */
     display: block;
 }
 
-/* 3. Đoạn văn mô tả */
 .hearth-desc {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-style: italic;
-    /* Chữ nghiêng như trong ảnh */
     font-size: 16px;
     line-height: 1.6;
     color: #ccc;
-    /* Màu chữ xám nhạt hơn tiêu đề chút */
     margin: 0 auto;
 }
 
-/* 4. Họa tiết trang trí 2 bên (Hình viên thuốc rỗng) */
 .decor-pill {
     position: absolute;
     top: 50%;
@@ -635,7 +616,6 @@ body {
 
 .reservation-section {
     background-color: #65432A;
-    /* Màu nâu đậm nền */
     padding: 100px 0;
     position: relative;
     display: flex;
@@ -643,7 +623,6 @@ body {
     justify-content: center;
 }
 
-/* Thẻ chứa form (Màu kem) */
 .reservation-card {
     background-color: #F7F4EF;
     border-radius: 15px;
@@ -652,7 +631,6 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Tiêu đề */
 .reservation-title {
     font-family: 'Cinzel', serif;
     font-size: 42px;
@@ -663,13 +641,11 @@ body {
     letter-spacing: 1px;
 }
 
-/* Trang trí 2 bên mép (Hình thoi đen) */
 .card-decor {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 40px;
-    /* Kích thước icon */
     height: 40px;
     z-index: 2;
     display: flex;
@@ -677,14 +653,12 @@ body {
     justify-content: center;
 }
 
-/* Ẩn icon lịch mặc định */
 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
     position: absolute;
     right: 0;
     cursor: pointer;
 }
-
 
 .card-decor img {
     width: 100%;
@@ -700,7 +674,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     right: -20px;
 }
 
-/* --- Form Styling --- */
 .form-label-custom {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-size: 12px;
@@ -932,6 +905,492 @@ select.form-control-custom {
     font-family: sans-serif;
 }
 
+.menu-page-wrapper {
+    background-color: #F7F4EF;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.menu-banner {
+    background-color: #1A1A1A;
+    color: #fff;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.banner-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.menu-page-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: 2px;
+    line-height: 1.3;
+}
+
+.menu-section {
+    padding: 20px 0 100px;
+    background-color: #F7F4EF;
+}
+
+/* Header Category */
+.category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+    margin-top: 40px;
+}
+
+.menu-decor-line-long {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #000000;
+}
+
+.category-name {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #5E4032;
+    margin: 0;
+    padding-right: 20px;
+    letter-spacing: 1px;
+}
+
+.menu-item-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: visible;
+    margin-top: 0;
+    border-radius: 12px;
+    background-color: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.menu-item-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-bg {
+    background-color: #65432A;
+    height: 120px;
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow: visible;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.dish-img {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.menu-item-card:hover .dish-img {
+    transform: translateX(-50%) translateY(-10px) scale(1.05);
+}
+
+.card-info {
+    background-color: #EBE5CE;
+    padding: 35px 20px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.dish-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #171917;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.menu-dish-desc {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    color: #210000;
+    line-height: 1.5;
+    margin-top: 0;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.dish-body {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: auto;
+}
+
+.dish-price {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #65432A;
+    line-height: 1;
+}
+
+.soup-section {
+    background-color: #EAE0CE;
+}
+
+.soup-section .menu-item-card .card-img-bg {
+    background-color: #171917;
+}
+
+.main-section {
+    background-color: #F7F4EF;
+}
+
+.drink-section {
+    background-color: #EAE0CE;
+}
+
+.drink-section .menu-item-card .card-img-bg {
+    background-color: #1A1A1A;
+}
+
+.drink-section .dish-img {
+    height: 160px;
+    max-width: 140px;
+    bottom: 0px;
+}
+
+.dessert-special-section {
+    padding-bottom: 80px;
+}
+
+.dessert-layout-wrapper {
+    position: relative;
+}
+
+.dessert-bg-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: #EAE0CE;
+    z-index: 1;
+}
+
+.dessert-bg-wave-img {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+}
+
+.dessert-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.dessert-img {
+    max-width: 100%;
+    width: 350px;
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2));
+    transform: translate(120px, -20px);
+}
+
+.dessert-info-container {
+    display: flex;
+    align-items: stretch;
+    padding-left: 30px;
+    height: 100%;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: auto;
+    background-color: #171917;
+    margin-right: 25px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.dessert-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #171917;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.dessert-desc {
+    font-size: 0.9rem;
+    color: #444;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-style: italic;
+    margin-bottom: 15px;
+    max-width: 300px;
+}
+
+.dessert-price {
+    font-family: var(--font-main);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5C4033;
+    line-height: 1;
+}
+
+.contact-section {
+    padding: 80px 0;
+    background-color: #F7F4EF;
+    font-family: sans-serif;
+}
+
+.contact-heading {
+    font-family: var(--font-main);
+    color: #5C4033;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contact-desc {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: #210000;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #D3CBBF;
+}
+
+.icon-box {
+    width: 40px;
+    margin-right: 20px;
+    font-size: 1.5rem;
+    color: #65432A;
+}
+
+.info-text p {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    margin-bottom: 5px;
+    color: #74787C;
+    font-size: 0.95rem;
+}
+
+.info-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #171917;
+    margin-bottom: 8px;
+}
+
+.happy-hour-box {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #D3CBBF;
+    width: 100%;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.contact-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #171917;
+    margin-right: 0;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.contact-icons a:hover {
+    color: #5C4033;
+}
+
+
+.contact-form-box {
+    background-color: #EAE0CE;
+    padding: 50px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.form-heading {
+    font-family: var(--font-main);
+    color: #5C4033;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-sub-heading {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 0.95rem;
+    color: #210000;
+    font-weight: 500;
+}
+
+.form-label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    color: #4A3B32;
+    margin-bottom: 8px;
+}
+
+.custom-input {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    background-color: #FFF9F2;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.custom-input:focus {
+    box-shadow: none;
+    background-color: #fff;
+    outline: 1px solid #5C4033;
+}
+
+.custom-input::placeholder {
+    color: #AFAFAF;
+}
+
+.btn-submit-message {
+    background-color: #171917;
+    color: #fff;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+.btn-submit-message:hover {
+    background-color: #5C4033;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.decor-star {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+}
+
+.decor-star img {
+    width: 100%;
+}
+
+.star-left {
+    left: -15px;
+}
+
+.star-right {
+    right: -15px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content-wrapper {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content-wrapper {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #ccc;
+    transform: scale(1.1);
+}
+
 @media (max-width: 991px) {
     .navbar-collapse {
         position: fixed;
@@ -978,8 +1437,8 @@ select.form-control-custom {
 
     .btn-close-menu {
         position: absolute;
-        top: 25px;
-        right: 25px;
+        top: 20px;
+        right: 20px;
         background: none;
         border: none;
         font-size: 60px;
@@ -1071,7 +1530,19 @@ select.form-control-custom {
         z-index: auto !important;
     }
 
-    /* 2. CÁI VÒM (Nằm dưới cùng - Layer 1) */
+    .menu-banner {
+        padding: 60px 0;
+    }
+
+    .menu-page-title {
+        font-size: 38px;
+    }
+
+    .banner-divider {
+        width: 100%;
+        bottom: -1px;
+    }
+
     .arch-bg {
         width: 90%;
         max-width: 350px;
@@ -1082,28 +1553,16 @@ select.form-control-custom {
         top: auto !important;
         bottom: 0 !important;
         margin: 0 auto !important;
-
         z-index: 1;
-        /* Thấp nhất */
     }
 
-    /* 3. BACKGROUND NÂU (Nằm giữa - Layer 5) */
-
-
-    /* 4. BÁT PHỞ (Nằm trên cùng - Layer 20) */
     .arch-img {
         position: absolute !important;
-
-        /* Cao nhất, đè lên tất cả */
         z-index: 20;
-
         left: 50%;
         bottom: 0;
         top: auto !important;
-
-        /* Chỉnh lại vị trí cho khớp */
         transform: translate(-50%, 10%) !important;
-
         margin: 0 !important;
         width: 65%;
         max-width: 240px;
@@ -1111,98 +1570,66 @@ select.form-control-custom {
 
     .grand-opening-section {
         position: relative;
-
-        /* Layer cao hơn cái Vòm (1) nhưng thấp hơn bát Phở (20) */
         z-index: 5 !important;
-
-        /* Kéo lên để đè vào chân cái vòm */
         margin-top: -80px !important;
-        /* Tăng lên -80px để che được nhiều hơn */
-
         padding-top: 320px;
     }
 
     .floating-dishes {
         display: block !important;
-        /* Hiện lại trên mobile */
         position: absolute;
-        /* Để nó phủ lên toàn bộ khu vực nền nâu */
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: 15;
-        /* Nằm trên nền nâu (z-5) nhưng dưới bát phở chính (z-20) */
         pointer-events: none;
-        /* Để không chặn click vào chữ bên dưới */
         margin: 0;
-        /* Reset margin cũ */
         padding: 0;
     }
 
-    /* 2. Style chung cho các đĩa (TO RA) */
     .floating-dishes .dish {
         position: absolute !important;
-        /* Cho phép bay tự do */
         height: auto;
-        /* Tăng kích thước cơ bản lên, và thêm bóng đổ đậm hơn để tạo chiều sâu */
         filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.3));
     }
 
-    /* --- 3. ĐỊNH VỊ TỪNG ĐĨA (NẰM RẢI RÁC) --- */
-    /* Bạn có thể tùy chỉnh các thông số top/left/right/width ở đây để dời vị trí theo ý thích */
-
-    /* Đĩa 1: Thịt bò (Góc trên trái) */
     .dish-1 {
         top: 5%;
         left: -30px;
-        /* Hơi thụt vào mép trái */
         width: 150px;
-        /* To ra */
         transform: rotate(-15deg);
-        /* Xoay nhẹ cho tự nhiên */
     }
 
-    /* Đĩa 2: Súp gà (Góc trên phải) */
     .dish-2 {
         top: 14%;
         left: 30%;
         width: 160px;
     }
 
-    /* Đĩa 3: Nem cuốn (Ở giữa, gần tiêu đề) */
     .dish-3 {
         top: 30%;
-        /* Nằm dưới chữ Grand Opening một chút */
         left: 65%;
         transform: translateX(-60%) rotate(5deg);
-        /* Căn giữa và xoay nhẹ */
         width: 180px;
-        /* Đĩa này cho to nhất */
     }
 
-    /* Đĩa 4: Chén sốt (Góc dưới trái) */
     .dish-4 {
         top: 30%;
         left: 10%;
         width: 100px;
-        /* Chén sốt thì nhỏ hơn chút */
     }
 
-    /* Đĩa 5: Chảo nóng (Góc dưới phải) */
     .dish-5 {
         bottom: 25%;
         right: 0;
         width: 160px;
     }
 
-    /* Điều chỉnh lại padding của phần chữ để không bị các đĩa che mất quá nhiều */
     .content-promo {
         position: relative;
         z-index: 16;
-        /* Chữ nổi lên trên các đĩa phụ */
         padding-top: 50px;
-        /* Tạo khoảng trống phía trên */
     }
 
     .discount-text {
@@ -1216,51 +1643,40 @@ select.form-control-custom {
 
     .signature-item {
         width: 100% !important;
-        /* Mobile: 1 món */
         flex: 0 0 100% !important;
         border-right: none;
-        /* Bỏ border ngăn cách nếu muốn nhìn thoáng hơn */
     }
 
-    /* Thu nhỏ nút bấm trên mobile cho đỡ chiếm chỗ */
     .btn-slider {
         width: 40px;
         height: 40px;
         font-size: 14px;
     }
 
-    /* hiệu ứng nhấn nhẹ (không đổi màu) */
     .btn-slider:active {
         background-color: #5E4032;
         transform: scale(0.92);
     }
 
-    /* ✅ CHỈ reset focus KHI ĐÃ THẢ TAY */
-    .btn-slider:focus,
-    .btn-slider:focus-visible {
-        outline: none;
+    .btn-slider:focus:not(:active),
+    .btn-slider:focus-visible:not(:active) {
+        background-color: #1A1A1A;
+        color: #fff;
         box-shadow: none;
+        outline: none;
     }
 
     #signatureRow {
         border-left: none !important;
-        /* Tắt gạch trái của hàng */
     }
 
     .border-col {
         border-right: none !important;
-        /* Tắt gạch phải của cột */
     }
 
-    /* Bước 2: Bật đường kẻ tĩnh cho khung cửa sổ (Luôn cố định 2 bên) */
     .signature-slider-window {
         border-left: 2px solid #5E4032;
-        /* Gạch dọc trái */
         border-right: 2px solid #5E4032;
-        /* Gạch dọc phải */
-
-        /* Tùy chọn: Bo góc nhẹ nếu muốn khung mềm mại hơn */
-        /* border-radius: 4px; */
     }
 
     .warm-hearth-section {
@@ -1292,5 +1708,86 @@ select.form-control-custom {
     .card-decor img {
         width: 30px;
         height: 30px;
+    }
+
+    .dessert-layout-wrapper {
+        margin-top: 0;
+    }
+
+    .dessert-special-section {
+        padding-bottom: 30px;
+    }
+
+    .dessert-content .row {
+        flex-wrap: nowrap;
+        margin: 0;
+    }
+
+    .dessert-content .col-md-5 {
+        width: 45%;
+        flex: 0 0 45%;
+        padding: 0;
+    }
+
+    .dessert-content .col-md-7 {
+        width: 55%;
+        flex: 0 0 55%;
+        padding: 0;
+    }
+
+    .dessert-img {
+        width: 150px;
+        transform: translate(10px, -10px) !important;
+    }
+
+    .dessert-info-container {
+        padding-left: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        height: auto;
+    }
+
+    .vertical-divider {
+        display: block !important;
+        margin-right: 10px;
+        margin-left: 5px;
+        width: 1px;
+    }
+
+    .dessert-text {
+        padding-right: 10px;
+    }
+
+    .dessert-title {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+
+    .dessert-desc {
+        font-size: 0.65rem;
+        line-height: 1.2;
+        margin-bottom: 2px;
+    }
+
+    .dessert-price {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .dessert-bg-shape {
+        height: 30%;
+    }
+
+    .dessert-bg-wave-img {
+        bottom: 28%;
+    }
+
+    .contact-form-box {
+        padding: 25px;
+    }
+
+    .form-heading {
+        font-size: 1.5rem;
     }
 }
