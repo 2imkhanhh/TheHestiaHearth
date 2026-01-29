@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById('reservationModal');
     const closeModalBtn = document.querySelector('.close-modal');
-    const reserveBtns = document.querySelectorAll('.btn-reserve, .btn-footer-reserve');
+    const reserveBtns = document.querySelectorAll('.btn-reserve, .btn-footer-reserve, .btn-order-now');
 
     function openModal(e) {
         e.preventDefault(); 
