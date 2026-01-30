@@ -432,44 +432,102 @@
     <div id="reservationModal" class="modal-overlay">
         <div class="modal-content-wrapper">
             <button class="close-modal">&times;</button>
+
             <div class="reservation-card">
-                <div class="card-decor decor-left">
-                    <img src="assets/images/star2.png" alt="✦">
+                <div class="card-decor decor-left"><img src="assets/images/star2.png" alt="✦"></div>
+                <div class="card-decor decor-right"><img src="assets/images/star2.png" alt="✦"></div>
+
+                <div class="steps-header mb-4"
+                    style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                    <div class="step-item active" id="step1-indicatorModal">
+                        <span class="step-circle">1</span> <span class="step-text">Find a table</span>
+                    </div>
+                    <div class="step-item" id="step2-indicatorModal">
+                        <span class="step-circle">2</span> <span class="step-text">Add your details</span>
+                    </div>
                 </div>
-                <div class="card-decor decor-right">
-                    <img src="assets/images/star2.png" alt="✦">
-                </div>
+
                 <h2 class="reservation-title">BOOK YOUR TABLE</h2>
-                <form action="#" class="reservation-form">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <label class="form-label-custom">YOUR NAME <span class="text-danger">**</span></label>
-                            <input type="text" class="form-control form-control-custom" placeholder="DAHLIA ANISSA">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label-custom">EMAIL <span class="text-danger">**</span></label>
-                            <input type="email" class="form-control form-control-custom" placeholder="*EMAIL ADDRESS">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label-custom">PERSON <span class="text-danger">**</span></label>
-                            <select class="form-select form-control-custom">
-                                <option selected>1 PERSON</option>
-                                <option value="2">2 PERSONS</option>
-                                <option value="3">3 PERSONS</option>
-                                <option value="4">4+ PERSONS</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label-custom">SELECT DATE <span class="text-danger">**</span></label>
-                            <div class="position-relative">
-                                <input type="date" id="reservationDateModal" class="form-control form-control-custom">
-                                <i class="fa-regular fa-calendar position-absolute end-0 top-50 translate-middle-y me-3 text-muted"
-                                    style="cursor: pointer;"
-                                    onclick="document.getElementById('reservationDateModal').showPicker()"></i>
+
+                <form action="#" class="reservation-form" id="bookingFormModal" onsubmit="return false;">
+                    <div id="step1-containerModal">
+                        <div class="booking-group-wrapper form-control-custom">
+                            <div class="booking-item">
+                                <div class="booking-icon"><i class="fa-regular fa-calendar"></i></div>
+                                <input type="text" id="datePickerModal" class="booking-input-reset"
+                                    placeholder="Select Date">
+                            </div>
+                            <div class="booking-item">
+                                <div class="booking-icon"><i class="fa-regular fa-clock"></i></div>
+                                <select id="timePickerModal" class="booking-input-reset"></select>
+                            </div>
+                            <div class="booking-item no-border">
+                                <div class="booking-icon"><i class="fa-regular fa-user"></i></div>
+                                <select id="peoplePickerModal" class="booking-input-reset"></select>
                             </div>
                         </div>
-                        <div class="col-12 mt-5">
-                            <button type="submit" class="btn-check-availability w-100">CHECK AVAILABILITY</button>
+
+                        <div class="col-12 mt-4">
+                            <button type="button" id="btnCheckModal" class="btn-check-availability">CHECK
+                                AVAILABILITY</button>
+                        </div>
+
+                        <div class="available-times-container" id="availableTimesModal" style="display: none;">
+                            <div class="w-100 text-center mb-2"
+                                style="font-family:'Bricolage Grotesque'; font-size:14px; color:#666;">Select a time to
+                                proceed:</div>
+                            <button type="button" class="time-slot-btn modal-time-btn">18:30</button>
+                            <button type="button" class="time-slot-btn modal-time-btn">18:45</button>
+                            <button type="button" class="time-slot-btn modal-time-btn">19:00</button>
+                            <button type="button" class="time-slot-btn modal-time-btn">19:15</button>
+                            <button type="button" class="time-slot-btn modal-time-btn">19:30</button>
+                        </div>
+                    </div>
+
+                    <div id="step2-containerModal" style="display: none;">
+                        <div class="mb-3">
+                            <a href="javascript:void(0)" class="back-link" id="btnBackModal"
+                                style="color: #5E4032; text-decoration: none; font-weight: 600;">
+                                <i class="fa-solid fa-arrow-left me-2"></i> Change Selection
+                            </a>
+                        </div>
+
+                        <div class="selected-summary mb-4"
+                            style="background: rgba(94, 64, 50, 0.1); padding: 10px; border-radius: 4px; margin-bottom: 20px;">
+                            <i class="fa-solid fa-check-circle me-2" style="color: #5E4032;"></i>
+                            <span id="summaryTextModal" style="font-weight: 600; color: #1A1A1A;"></span>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" id="inputFNameModal" class="form-control-step2"
+                                    placeholder="First Name *"
+                                    style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="inputLNameModal" class="form-control-step2"
+                                    placeholder="Last Name *"
+                                    style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" id="inputEmailModal" class="form-control-step2"
+                                    placeholder="Email Address *"
+                                    style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" id="inputPhoneModal" class="form-control-step2"
+                                    placeholder="Phone Number *"
+                                    style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control-step2" rows="2" placeholder="Special Request (Optional)"
+                                    style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <button type="button" id="btnCompleteModal" class="btn-check-availability">COMPLETE
+                                RESERVATION</button>
                         </div>
                     </div>
                 </form>
@@ -482,10 +540,6 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
-            // ==========================================
-            // PHẦN 1: ANIMATION CHỮ KÝ (Signature Row)
-            // ==========================================
             const row = document.getElementById('signatureRow');
             const btnPrev = document.getElementById('btnSigPrev');
             const btnNext = document.getElementById('btnSigNext');
@@ -528,19 +582,12 @@
                 if (row) { row.style.transition = "none"; row.style.transform = "translateX(0)"; }
             });
 
-
-            // ==========================================
-            // PHẦN 2: LOGIC ĐẶT BÀN (Booking Flow)
-            // ==========================================
-
-            // 1. Khởi tạo Flatpickr
             if (typeof flatpickr !== 'undefined') {
                 flatpickr("#datePicker", {
                     dateFormat: "d M Y", defaultDate: "today", minDate: "today", disableMobile: "true"
                 });
             }
 
-            // 2. Tạo dữ liệu Select
             const timeSelect = document.getElementById('timePicker');
             if (timeSelect) {
                 for (let h = 10; h <= 22; h++) {
@@ -557,8 +604,7 @@
                 peopleSelect.options[1].selected = true;
             }
 
-            // 3. Khai báo biến
-            const btnCheck = document.getElementById('btnCheck'); // ID MỚI CỦA NÚT
+            const btnCheck = document.getElementById('btnCheck'); 
             const availableTimesContainer = document.getElementById('availableTimes');
             const step1Container = document.getElementById('step1-container');
             const step2Container = document.getElementById('step2-container');
@@ -566,21 +612,16 @@
             const step2Indicator = document.getElementById('step2-indicator');
             const summaryText = document.getElementById('summaryText');
 
-            // 4. SỰ KIỆN QUAN TRỌNG: Nhấn nút "CHECK AVAILABILITY"
-            // Sử dụng sự kiện 'click' thay vì 'submit' form để tránh lỗi validation trường ẩn
             if (btnCheck) {
                 btnCheck.addEventListener('click', function (e) {
-                    e.preventDefault(); // Ngăn chặn hành vi mặc định (dù là button type="button" cũng nên có để chắc chắn)
+                    e.preventDefault(); 
                     if (availableTimesContainer) {
-                        // Hiện giờ trống
                         availableTimesContainer.style.display = 'flex';
-                        // Cuộn xuống để người dùng thấy các lựa chọn giờ
                         availableTimesContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
                 });
             }
 
-            // 5. Sự kiện: Chọn GIỜ -> Sang Bước 2
             const timeButtons = document.querySelectorAll('.time-slot-btn');
             timeButtons.forEach(btn => {
                 btn.addEventListener('click', function () {
@@ -596,7 +637,6 @@
                 });
             });
 
-            // --- CÁC HÀM ĐIỀU HƯỚNG ---
             window.goToStep2 = function () {
                 if (step1Container && step2Container) {
                     step1Container.style.display = 'none';
