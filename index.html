@@ -263,19 +263,33 @@
                         <form action="#" class="reservation-form" id="bookingForm">
 
                             <div id="step1-container">
-                                <div class="booking-group-wrapper form-control-custom">
-                                    <div class="booking-item">
-                                        <div class="booking-icon"><i class="fa-regular fa-calendar"></i></div>
-                                        <input type="text" id="datePicker" class="booking-input-reset"
-                                            placeholder="Select Date">
+                                <div class="booking-group-wrapper form-control-custom flex-column">
+
+                                    <div class="d-flex w-100 border-bottom-custom">
+                                        <div class="booking-item w-50 border-right-custom">
+                                            <div class="booking-icon"><i class="fa-regular fa-calendar"></i></div>
+                                            <input type="text" id="datePicker" class="booking-input-reset"
+                                                placeholder="Select Date">
+                                        </div>
+                                        <div class="booking-item w-50">
+                                            <div class="booking-icon"><i class="fa-regular fa-clock"></i></div>
+                                            <select id="timePicker" class="booking-input-reset"></select>
+                                        </div>
                                     </div>
-                                    <div class="booking-item">
-                                        <div class="booking-icon"><i class="fa-regular fa-clock"></i></div>
-                                        <select id="timePicker" class="booking-input-reset"></select>
-                                    </div>
-                                    <div class="booking-item no-border">
-                                        <div class="booking-icon"><i class="fa-regular fa-user"></i></div>
-                                        <select id="peoplePicker" class="booking-input-reset"></select>
+
+                                    <div class="d-flex w-100">
+                                        <div class="booking-item w-50 border-right-custom">
+                                            <div class="booking-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                            <select id="locationPicker" class="booking-input-reset">
+                                                <option value="1">Branch 1 (Hanoi)</option>
+                                                <option value="2">Branch 2 (Da Nang)</option>
+                                                <option value="3">Branch 3 (Saigon)</option>
+                                            </select>
+                                        </div>
+                                        <div class="booking-item w-50">
+                                            <div class="booking-icon"><i class="fa-regular fa-user"></i></div>
+                                            <select id="peoplePicker" class="booking-input-reset"></select>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -338,7 +352,17 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 mt-4">
+                                <div class="col-12 mt-3 text-start">
+                                    <p
+                                        style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; color: #000; margin-bottom: 5px;">
+                                        By clicking ‘Complete reservation’, you agree to our Terms of Use and
+                                        <a href="#"
+                                            style="color: #5E4032; text-decoration: none; font-weight: 700;">Privacy
+                                            Policy</a>.
+                                    </p>
+                                </div>
+
+                                <div class="col-12 mt-2">
                                     <button type="button" id="btnComplete" class="btn-check-availability">COMPLETE
                                         RESERVATION</button>
                                 </div>
@@ -450,20 +474,34 @@
                 <h2 class="reservation-title">BOOK YOUR TABLE</h2>
 
                 <form action="#" class="reservation-form" id="bookingFormModal" onsubmit="return false;">
+
                     <div id="step1-containerModal">
-                        <div class="booking-group-wrapper form-control-custom">
-                            <div class="booking-item">
-                                <div class="booking-icon"><i class="fa-regular fa-calendar"></i></div>
-                                <input type="text" id="datePickerModal" class="booking-input-reset"
-                                    placeholder="Select Date">
+                        <div class="booking-group-wrapper form-control-custom flex-column">
+                            <div class="d-flex w-100 border-bottom-custom">
+                                <div class="booking-item w-50 border-right-custom">
+                                    <div class="booking-icon"><i class="fa-regular fa-calendar"></i></div>
+                                    <input type="text" id="datePickerModal" class="booking-input-reset"
+                                        placeholder="Select Date">
+                                </div>
+                                <div class="booking-item w-50">
+                                    <div class="booking-icon"><i class="fa-regular fa-clock"></i></div>
+                                    <select id="timePickerModal" class="booking-input-reset"></select>
+                                </div>
                             </div>
-                            <div class="booking-item">
-                                <div class="booking-icon"><i class="fa-regular fa-clock"></i></div>
-                                <select id="timePickerModal" class="booking-input-reset"></select>
-                            </div>
-                            <div class="booking-item no-border">
-                                <div class="booking-icon"><i class="fa-regular fa-user"></i></div>
-                                <select id="peoplePickerModal" class="booking-input-reset"></select>
+
+                            <div class="d-flex w-100">
+                                <div class="booking-item w-50 border-right-custom">
+                                    <div class="booking-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                    <select id="locationPickerModal" class="booking-input-reset">
+                                        <option value="1">Main Branch (Hanoi)</option>
+                                        <option value="2">Branch 2 (Da Nang)</option>
+                                        <option value="3">Branch 3 (Saigon)</option>
+                                    </select>
+                                </div>
+                                <div class="booking-item w-50">
+                                    <div class="booking-icon"><i class="fa-regular fa-user"></i></div>
+                                    <select id="peoplePickerModal" class="booking-input-reset"></select>
+                                </div>
                             </div>
                         </div>
 
@@ -499,33 +537,37 @@
                         </div>
 
                         <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" id="inputFNameModal" class="form-control-step2"
+                            <div class="col-md-6"><input type="text" id="inputFNameModal" class="form-control-step2"
                                     placeholder="First Name *"
                                     style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
                             </div>
-                            <div class="col-md-6">
-                                <input type="text" id="inputLNameModal" class="form-control-step2"
+                            <div class="col-md-6"><input type="text" id="inputLNameModal" class="form-control-step2"
                                     placeholder="Last Name *"
                                     style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
                             </div>
-                            <div class="col-md-6">
-                                <input type="email" id="inputEmailModal" class="form-control-step2"
+                            <div class="col-md-6"><input type="email" id="inputEmailModal" class="form-control-step2"
                                     placeholder="Email Address *"
                                     style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
                             </div>
-                            <div class="col-md-6">
-                                <input type="tel" id="inputPhoneModal" class="form-control-step2"
+                            <div class="col-md-6"><input type="tel" id="inputPhoneModal" class="form-control-step2"
                                     placeholder="Phone Number *"
                                     style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
                             </div>
-                            <div class="col-12">
-                                <textarea class="form-control-step2" rows="2" placeholder="Special Request (Optional)"
+                            <div class="col-12"><textarea class="form-control-step2" rows="2"
+                                    placeholder="Special Request (Optional)"
                                     style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;"></textarea>
                             </div>
                         </div>
 
-                        <div class="col-12 mt-4">
+                        <div class="col-12 mt-3 text-start">
+                            <p
+                                style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; color: #000; margin-bottom: 5px;">
+                                By clicking ‘Complete reservation’, you agree to our Terms of Use and <a href="#"
+                                    style="color: #5E4032; text-decoration: none; font-weight: 700;">Privacy Policy</a>.
+                            </p>
+                        </div>
+
+                        <div class="col-12 mt-2">
                             <button type="button" id="btnCompleteModal" class="btn-check-availability">COMPLETE
                                 RESERVATION</button>
                         </div>
@@ -540,6 +582,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
+            // --- 1. ANIMATION CHỮ KÝ (Giữ nguyên) ---
             const row = document.getElementById('signatureRow');
             const btnPrev = document.getElementById('btnSigPrev');
             const btnNext = document.getElementById('btnSigNext');
@@ -547,14 +591,12 @@
 
             if (row && btnPrev && btnNext) {
                 function getMovePercentage() { return window.innerWidth >= 992 ? (100 / 3) : 100; }
-
                 btnNext.addEventListener('click', function () {
                     if (isAnimating) return;
                     isAnimating = true;
                     const movePercent = getMovePercentage();
                     row.style.transition = "transform 0.4s ease-in-out";
                     row.style.transform = `translateX(-${movePercent}%)`;
-
                     setTimeout(() => {
                         row.style.transition = "none";
                         row.appendChild(row.firstElementChild);
@@ -562,7 +604,6 @@
                         isAnimating = false;
                     }, 400);
                 });
-
                 btnPrev.addEventListener('click', function () {
                     if (isAnimating) return;
                     isAnimating = true;
@@ -577,17 +618,24 @@
                     }, 20);
                 });
             }
-
             window.addEventListener('resize', function () {
                 if (row) { row.style.transition = "none"; row.style.transform = "translateX(0)"; }
             });
 
+            // --- 2. LOGIC ĐẶT BÀN FORM TĨNH ---
+
+            // Init Flatpickr
             if (typeof flatpickr !== 'undefined') {
                 flatpickr("#datePicker", {
-                    dateFormat: "d M Y", defaultDate: "today", minDate: "today", disableMobile: "true"
+                    dateFormat: "d M Y", defaultDate: "today", minDate: "today", disableMobile: "true",
+                    clickOpens: false,
+                    onReady: function (selectedDates, dateStr, instance) {
+                        instance.input.addEventListener("click", function () { instance.toggle(); });
+                    }
                 });
             }
 
+            // Init Time
             const timeSelect = document.getElementById('timePicker');
             if (timeSelect) {
                 for (let h = 10; h <= 22; h++) {
@@ -596,6 +644,7 @@
                 }
             }
 
+            // Init People
             const peopleSelect = document.getElementById('peoplePicker');
             if (peopleSelect) {
                 for (let i = 1; i <= 20; i++) {
@@ -604,48 +653,91 @@
                 peopleSelect.options[1].selected = true;
             }
 
-            const btnCheck = document.getElementById('btnCheck'); 
+            // --- XỬ LÝ CHECK AVAILABILITY & TẠO GIỜ ĐỘNG ---
+            const btnCheck = document.getElementById('btnCheck');
             const availableTimesContainer = document.getElementById('availableTimes');
-            const step1Container = document.getElementById('step1-container');
-            const step2Container = document.getElementById('step2-container');
-            const step1Indicator = document.getElementById('step1-indicator');
-            const step2Indicator = document.getElementById('step2-indicator');
             const summaryText = document.getElementById('summaryText');
+            const locSelect = document.getElementById('locationPicker');
 
             if (btnCheck) {
                 btnCheck.addEventListener('click', function (e) {
-                    e.preventDefault(); 
-                    if (availableTimesContainer) {
-                        availableTimesContainer.style.display = 'flex';
-                        availableTimesContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }
+                    e.preventDefault();
+
+                    // 1. Lấy giờ người dùng chọn (ví dụ "18:30")
+                    const selectedVal = timeSelect.value;
+                    if (!selectedVal) return;
+
+                    // 2. Tách giờ ra (Lấy 18 từ "18:30")
+                    const hour = parseInt(selectedVal.split(':')[0]);
+
+                    // 3. Xóa nội dung cũ trong container
+                    availableTimesContainer.innerHTML = '';
+
+                    // 4. Tạo Header Text
+                    const header = document.createElement('div');
+                    header.className = 'w-100 text-center mb-2';
+                    header.style.cssText = "font-family:'Bricolage Grotesque'; font-size:14px; color:#666;";
+                    header.innerText = 'Select a time to proceed:';
+                    availableTimesContainer.appendChild(header);
+
+                    // 5. Vòng lặp tạo 5 mốc thời gian: 00, 15, 30, 45, 60 (giờ tiếp theo)
+                    // Logic: Luôn bắt đầu từ :00 của giờ đã chọn
+                    const minutes = [0, 15, 30, 45, 60];
+
+                    minutes.forEach(min => {
+                        let displayHour = hour;
+                        let displayMin = min;
+
+                        // Nếu là phút 60 thì tăng giờ lên 1 và phút về 00
+                        if (min === 60) {
+                            displayHour = hour + 1;
+                            displayMin = 0;
+                        }
+
+                        // Format chuỗi giờ (VD: 18:00)
+                        const timeStr = `${displayHour}:${displayMin.toString().padStart(2, '0')}`;
+
+                        // Tạo nút Button
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'time-slot-btn'; // Class gốc
+                        btn.innerText = timeStr;
+
+                        // Gán sự kiện click ngay khi tạo nút
+                        btn.addEventListener('click', function () {
+                            const selectedDate = document.getElementById('datePicker').value;
+                            const selectedPeople = peopleSelect.options[peopleSelect.selectedIndex].text;
+                            const selectedLoc = locSelect ? locSelect.options[locSelect.selectedIndex].text : '';
+
+                            if (summaryText) {
+                                summaryText.innerText = `Booking at ${selectedLoc} for ${selectedPeople} on ${selectedDate} at ${timeStr}`;
+                            }
+                            goToStep2();
+                        });
+
+                        availableTimesContainer.appendChild(btn);
+                    });
+
+                    // 6. Hiển thị container
+                    availableTimesContainer.style.display = 'flex';
+                    availableTimesContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 });
             }
 
-            const timeButtons = document.querySelectorAll('.time-slot-btn');
-            timeButtons.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const selectedTime = this.innerText;
-                    const selectedDate = document.getElementById('datePicker').value;
-                    const selectedPeople = peopleSelect.options[peopleSelect.selectedIndex].text;
-
-                    if (summaryText) {
-                        summaryText.innerText = `You are booking for ${selectedPeople} on ${selectedDate} at ${selectedTime}`;
-                    }
-
-                    goToStep2();
-                });
-            });
-
+            // --- CÁC HÀM ĐIỀU HƯỚNG ---
             window.goToStep2 = function () {
-                if (step1Container && step2Container) {
-                    step1Container.style.display = 'none';
-                    step2Container.style.display = 'block';
+                const step1 = document.getElementById('step1-container');
+                const step2 = document.getElementById('step2-container');
+                const ind1 = document.getElementById('step1-indicator');
+                const ind2 = document.getElementById('step2-indicator');
 
-                    if (step1Indicator && step2Indicator) {
-                        step1Indicator.classList.remove('active');
-                        step1Indicator.innerHTML = '<span class="step-circle"><i class="fa-solid fa-check"></i></span> <span class="step-text">Find a table</span>';
-                        step2Indicator.classList.add('active');
+                if (step1 && step2) {
+                    step1.style.display = 'none';
+                    step2.style.display = 'block';
+                    if (ind1 && ind2) {
+                        ind1.classList.remove('active');
+                        ind1.innerHTML = '<span class="step-circle"><i class="fa-solid fa-check"></i></span> <span class="step-text">Find a table</span>';
+                        ind2.classList.add('active');
                     }
                     const card = document.querySelector('.reservation-card');
                     if (card) card.scrollIntoView({ behavior: 'smooth' });
@@ -653,14 +745,18 @@
             }
 
             window.goBackToStep1 = function () {
-                if (step1Container && step2Container) {
-                    step2Container.style.display = 'none';
-                    step1Container.style.display = 'block';
+                const step1 = document.getElementById('step1-container');
+                const step2 = document.getElementById('step2-container');
+                const ind1 = document.getElementById('step1-indicator');
+                const ind2 = document.getElementById('step2-indicator');
 
-                    if (step1Indicator && step2Indicator) {
-                        step1Indicator.classList.add('active');
-                        step1Indicator.innerHTML = '<span class="step-circle">1</span> <span class="step-text">Find a table</span>';
-                        step2Indicator.classList.remove('active');
+                if (step1 && step2) {
+                    step2.style.display = 'none';
+                    step1.style.display = 'block';
+                    if (ind1 && ind2) {
+                        ind1.classList.add('active');
+                        ind1.innerHTML = '<span class="step-circle">1</span> <span class="step-text">Find a table</span>';
+                        ind2.classList.remove('active');
                     }
                 }
             }
