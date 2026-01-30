@@ -637,7 +637,7 @@ body {
     font-weight: 700;
     text-align: center;
     color: #000;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     letter-spacing: 1px;
 }
 
@@ -648,22 +648,6 @@ body {
     width: 40px;
     height: 40px;
     z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-}
-
-.card-decor img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
 }
 
 .decor-left {
@@ -674,51 +658,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     right: -20px;
 }
 
-.form-label-custom {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: #1A1A1A;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
+.card-decor img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
 }
 
-.text-danger {
-    color: #A94442 !important;
-    font-weight: bold;
-}
-
-.form-control-custom {
-    background-color: #F2EFE9;
-    border: 1px solid #8C8C8C;
-    border-radius: 4px;
-    padding: 12px 15px;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 14px;
-    color: #333;
-    box-shadow: none;
-    transition: all 0.3s;
-}
-
-.form-control-custom:focus {
-    background-color: #fff;
-    border-color: #1A1A1A;
-    box-shadow: none;
-}
-
-.form-control-custom::placeholder {
-    color: #999;
-    font-size: 13px;
-}
-
-select.form-control-custom {
-    appearance: none;
-
-    background-position: right 15px center;
-    background-size: 16px;
-}
-
+/* Nút bấm */
 .btn-check-availability {
     display: block;
     width: 100%;
@@ -733,11 +679,227 @@ select.form-control-custom {
     border-radius: 4px;
     letter-spacing: 1px;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .btn-check-availability:hover {
     background-color: #5E4032;
     color: #fff;
+}
+
+/* Các ô input Step 1 */
+.booking-group-wrapper.form-control-custom {
+    display: flex;
+    padding: 0;
+    background-color: #F2EFE9;
+    border: 1px solid #8C8C8C;
+    align-items: stretch;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.booking-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-right: 1px solid #8C8C8C;
+    position: relative;
+    transition: background-color 0.2s;
+    height: 80px;
+}
+
+.booking-item:hover {
+    background-color: #e8e4dc;
+}
+
+.booking-item.no-border {
+    border-right: none;
+}
+
+.booking-icon {
+    position: absolute;
+    left: 25px;
+    color: #1A1A1A;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.booking-input-reset {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    padding-left: 60px;
+    padding-right: 20px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+select.booking-input-reset {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235E4032' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 25px center;
+    background-size: 16px;
+}
+
+input#datePicker.booking-input-reset {
+    background-image: none;
+}
+
+/* Time Slots */
+.available-times-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.time-slot-btn {
+    flex: 1 1 calc(20% - 10px);
+    background-color: #1A1A1A;
+    color: #fff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-align: center;
+    min-width: 80px;
+}
+
+.time-slot-btn:hover {
+    background-color: #5E4032;
+    transform: translateY(-2px);
+}
+
+/* Custom Lịch */
+.flatpickr-calendar {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    border: 1px solid #8C8C8C;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.selected:hover {
+    background: #5E4032 !important;
+    border-color: #5E4032 !important;
+    color: #fff;
+}
+
+.flatpickr-month .flatpickr-prev-month:hover svg,
+.flatpickr-month .flatpickr-next-month:hover svg,
+.flatpickr-month .flatpickr-prev-month:focus svg,
+.flatpickr-month .flatpickr-next-month:focus svg {
+    fill: #5E4032 !important;
+}
+
+/* === PHẦN MỚI: STEP INDICATOR (THANH BƯỚC 1 - 2) === */
+.steps-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    /* Khoảng cách giữa 2 bước */
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    color: #999;
+    /* Màu xám cho bước chưa active */
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.step-circle {
+    width: 28px;
+    height: 28px;
+    background-color: transparent;
+    border: 1px solid #999;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Trạng thái Active (Màu Nâu) */
+.step-item.active {
+    color: #1A1A1A;
+    font-weight: 700;
+}
+
+.step-item.active .step-circle {
+    background-color: #5E4032;
+    /* Nền nâu */
+    border-color: #5E4032;
+    color: #fff;
+    /* Số màu trắng */
+}
+
+/* === PHẦN MỚI: STEP 2 FORM STYLE === */
+.form-control-step2 {
+    width: 100%;
+    padding: 15px;
+    background-color: #F2EFE9;
+    /* Giống màu nền step 1 */
+    border: 1px solid #8C8C8C;
+    border-radius: 4px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: #333;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-control-step2:focus {
+    background-color: #fff;
+    border-color: #5E4032;
+    /* Focus màu nâu */
+}
+
+.back-link {
+    color: #5E4032;
+    text-decoration: none;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.selected-summary {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px;
+    color: #1A1A1A;
+    background: rgba(94, 64, 50, 0.1);
+    /* Nền nâu rất nhạt */
+    padding: 10px;
+    border-radius: 4px;
 }
 
 .main-footer {

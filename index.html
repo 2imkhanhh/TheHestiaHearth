@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
@@ -243,47 +244,103 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-xl-9">
                     <div class="reservation-card">
-                        <div class="card-decor decor-left">
-                            <img src="assets/images/star2.png" alt="✦">
+                        <div class="card-decor decor-left"><img src="assets/images/star2.png" alt="✦"></div>
+                        <div class="card-decor decor-right"><img src="assets/images/star2.png" alt="✦"></div>
+
+                        <div class="steps-header mb-4">
+                            <div class="step-item active" id="step1-indicator">
+                                <span class="step-circle">1</span>
+                                <span class="step-text">Find a table</span>
+                            </div>
+                            <div class="step-item" id="step2-indicator">
+                                <span class="step-circle">2</span>
+                                <span class="step-text">Add your details</span>
+                            </div>
                         </div>
-                        <div class="card-decor decor-right">
-                            <img src="assets/images/star2.png" alt="✦">
-                        </div>
+
                         <h2 class="reservation-title">BOOK YOUR TABLE</h2>
-                        <form action="#" class="reservation-form">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <label class="form-label-custom">YOUR NAME <span
-                                            class="text-danger">**</span></label>
-                                    <input type="text" class="form-control form-control-custom"
-                                        placeholder="DAHLIA ANISSA">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label-custom">EMAIL <span class="text-danger">**</span></label>
-                                    <input type="email" class="form-control form-control-custom"
-                                        placeholder="*EMAIL ADDRESS">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label-custom">PERSON <span class="text-danger">**</span></label>
-                                    <select class="form-select form-control-custom">
-                                        <option selected>1 PERSON</option>
-                                        <option value="2">2 PERSONS</option>
-                                        <option value="3">3 PERSONS</option>
-                                        <option value="4">4+ PERSONS</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label-custom">SELECT DATE <span
-                                            class="text-danger">**</span></label>
-                                    <div class="position-relative">
-                                        <input type="date" id="reservationDate"
-                                            class="form-control form-control-custom">
-                                        <i class="fa-regular fa-calendar position-absolute end-0 top-50 translate-middle-y me-3 text-muted"
-                                            style="cursor: pointer;" onclick="openDatePicker()"></i>
+
+                        <form action="#" class="reservation-form" id="bookingForm">
+
+                            <div id="step1-container">
+                                <div class="booking-group-wrapper form-control-custom">
+                                    <div class="booking-item">
+                                        <div class="booking-icon"><i class="fa-regular fa-calendar"></i></div>
+                                        <input type="text" id="datePicker" class="booking-input-reset"
+                                            placeholder="Select Date">
+                                    </div>
+                                    <div class="booking-item">
+                                        <div class="booking-icon"><i class="fa-regular fa-clock"></i></div>
+                                        <select id="timePicker" class="booking-input-reset"></select>
+                                    </div>
+                                    <div class="booking-item no-border">
+                                        <div class="booking-icon"><i class="fa-regular fa-user"></i></div>
+                                        <select id="peoplePicker" class="booking-input-reset"></select>
                                     </div>
                                 </div>
-                                <div class="col-12 mt-5">
-                                    <button type="submit" class="btn-check-availability">CHECK AVAILABILITY</button>
+
+                                <div class="col-12 mt-4">
+                                    <button type="button" id="btnCheck" class="btn-check-availability">CHECK
+                                        AVAILABILITY</button>
+                                </div>
+
+                                <div class="available-times-container" id="availableTimes" style="display: none;">
+                                    <div class="w-100 text-center mb-2"
+                                        style="font-family:'Bricolage Grotesque'; font-size:14px; color:#666;">Select a
+                                        time to proceed:</div>
+                                    <button type="button" class="time-slot-btn">18:30</button>
+                                    <button type="button" class="time-slot-btn">18:45</button>
+                                    <button type="button" class="time-slot-btn">19:00</button>
+                                    <button type="button" class="time-slot-btn">19:15</button>
+                                    <button type="button" class="time-slot-btn">19:30</button>
+                                </div>
+                            </div>
+
+                            <div id="step2-container" style="display: none;">
+                                <div class="mb-3">
+                                    <a href="javascript:void(0)" class="back-link" onclick="goBackToStep1()"
+                                        style="color: #5E4032; text-decoration: none; font-weight: 600;">
+                                        <i class="fa-solid fa-arrow-left me-2"></i> Change Selection
+                                    </a>
+                                </div>
+
+                                <div class="selected-summary mb-4"
+                                    style="background: rgba(94, 64, 50, 0.1); padding: 10px; border-radius: 4px; margin-bottom: 20px;">
+                                    <i class="fa-solid fa-check-circle me-2" style="color: #5E4032;"></i>
+                                    <span id="summaryText" style="font-weight: 600; color: #1A1A1A;"></span>
+                                </div>
+
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" id="inputFName" class="form-control-step2"
+                                            placeholder="First Name *"
+                                            style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" id="inputLName" class="form-control-step2"
+                                            placeholder="Last Name *"
+                                            style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" id="inputEmail" class="form-control-step2"
+                                            placeholder="Email Address *"
+                                            style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="tel" id="inputPhone" class="form-control-step2"
+                                            placeholder="Phone Number *"
+                                            style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control-step2" rows="2"
+                                            placeholder="Special Request (Optional)"
+                                            style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="button" id="btnComplete" class="btn-check-availability">COMPLETE
+                                        RESERVATION</button>
                                 </div>
                             </div>
                         </form>
@@ -422,16 +479,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
+            // ==========================================
+            // PHẦN 1: ANIMATION CHỮ KÝ (Signature Row)
+            // ==========================================
             const row = document.getElementById('signatureRow');
             const btnPrev = document.getElementById('btnSigPrev');
             const btnNext = document.getElementById('btnSigNext');
             let isAnimating = false;
-            function getMovePercentage() {
-                return window.innerWidth >= 992 ? (100 / 3) : 100;
-            }
+
             if (row && btnPrev && btnNext) {
+                function getMovePercentage() { return window.innerWidth >= 992 ? (100 / 3) : 100; }
+
                 btnNext.addEventListener('click', function () {
                     if (isAnimating) return;
                     isAnimating = true;
@@ -463,16 +525,106 @@
             }
 
             window.addEventListener('resize', function () {
-                row.style.transition = "none";
-                row.style.transform = "translateX(0)";
+                if (row) { row.style.transition = "none"; row.style.transform = "translateX(0)"; }
             });
-        });
 
-        function openDatePicker() {
-            const dateInput = document.getElementById('reservationDate');
-            dateInput.focus();
-            dateInput.showPicker && dateInput.showPicker();
-        }
+
+            // ==========================================
+            // PHẦN 2: LOGIC ĐẶT BÀN (Booking Flow)
+            // ==========================================
+
+            // 1. Khởi tạo Flatpickr
+            if (typeof flatpickr !== 'undefined') {
+                flatpickr("#datePicker", {
+                    dateFormat: "d M Y", defaultDate: "today", minDate: "today", disableMobile: "true"
+                });
+            }
+
+            // 2. Tạo dữ liệu Select
+            const timeSelect = document.getElementById('timePicker');
+            if (timeSelect) {
+                for (let h = 10; h <= 22; h++) {
+                    timeSelect.add(new Option(`${h}:00`, `${h}:00`));
+                    if (h < 22) timeSelect.add(new Option(`${h}:30`, `${h}:30`));
+                }
+            }
+
+            const peopleSelect = document.getElementById('peoplePicker');
+            if (peopleSelect) {
+                for (let i = 1; i <= 20; i++) {
+                    peopleSelect.add(new Option(i === 1 ? `${i} Person` : `${i} Persons`, i));
+                }
+                peopleSelect.options[1].selected = true;
+            }
+
+            // 3. Khai báo biến
+            const btnCheck = document.getElementById('btnCheck'); // ID MỚI CỦA NÚT
+            const availableTimesContainer = document.getElementById('availableTimes');
+            const step1Container = document.getElementById('step1-container');
+            const step2Container = document.getElementById('step2-container');
+            const step1Indicator = document.getElementById('step1-indicator');
+            const step2Indicator = document.getElementById('step2-indicator');
+            const summaryText = document.getElementById('summaryText');
+
+            // 4. SỰ KIỆN QUAN TRỌNG: Nhấn nút "CHECK AVAILABILITY"
+            // Sử dụng sự kiện 'click' thay vì 'submit' form để tránh lỗi validation trường ẩn
+            if (btnCheck) {
+                btnCheck.addEventListener('click', function (e) {
+                    e.preventDefault(); // Ngăn chặn hành vi mặc định (dù là button type="button" cũng nên có để chắc chắn)
+                    if (availableTimesContainer) {
+                        // Hiện giờ trống
+                        availableTimesContainer.style.display = 'flex';
+                        // Cuộn xuống để người dùng thấy các lựa chọn giờ
+                        availableTimesContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            }
+
+            // 5. Sự kiện: Chọn GIỜ -> Sang Bước 2
+            const timeButtons = document.querySelectorAll('.time-slot-btn');
+            timeButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const selectedTime = this.innerText;
+                    const selectedDate = document.getElementById('datePicker').value;
+                    const selectedPeople = peopleSelect.options[peopleSelect.selectedIndex].text;
+
+                    if (summaryText) {
+                        summaryText.innerText = `You are booking for ${selectedPeople} on ${selectedDate} at ${selectedTime}`;
+                    }
+
+                    goToStep2();
+                });
+            });
+
+            // --- CÁC HÀM ĐIỀU HƯỚNG ---
+            window.goToStep2 = function () {
+                if (step1Container && step2Container) {
+                    step1Container.style.display = 'none';
+                    step2Container.style.display = 'block';
+
+                    if (step1Indicator && step2Indicator) {
+                        step1Indicator.classList.remove('active');
+                        step1Indicator.innerHTML = '<span class="step-circle"><i class="fa-solid fa-check"></i></span> <span class="step-text">Find a table</span>';
+                        step2Indicator.classList.add('active');
+                    }
+                    const card = document.querySelector('.reservation-card');
+                    if (card) card.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            window.goBackToStep1 = function () {
+                if (step1Container && step2Container) {
+                    step2Container.style.display = 'none';
+                    step1Container.style.display = 'block';
+
+                    if (step1Indicator && step2Indicator) {
+                        step1Indicator.classList.add('active');
+                        step1Indicator.innerHTML = '<span class="step-circle">1</span> <span class="step-text">Find a table</span>';
+                        step2Indicator.classList.remove('active');
+                    }
+                }
+            }
+        });
     </script>
 </body>
 
