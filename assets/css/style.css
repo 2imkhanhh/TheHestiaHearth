@@ -706,7 +706,7 @@ body {
     border-right: 1px solid #8C8C8C;
     position: relative;
     transition: background-color 0.2s;
-    height: 80px;
+    height: 50px;
 }
 
 .booking-item:hover {
@@ -721,7 +721,7 @@ body {
     position: absolute;
     left: 25px;
     color: #1A1A1A;
-    font-size: 20px;
+    font-size: 18px;
     pointer-events: none;
     z-index: 1;
 }
@@ -734,7 +734,7 @@ body {
     outline: none;
     box-sizing: border-box;
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
     font-weight: 600;
     padding-left: 60px;
