@@ -8,11 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const step1Container = document.getElementById('step1-container');
         const step2Container = document.getElementById('step2-container');
         const step3Container = document.getElementById('step3-container');
+        const step4Container = document.getElementById('step4-container');
         const backBtnStep2 = document.querySelector('#step2-container .back-link');
 
         if(step1Container) step1Container.style.display = 'none';
         if(step2Container) step2Container.style.display = 'none';
         if(step3Container) step3Container.style.display = 'none';
+        if(step4Container) step4Container.style.display = 'none';
+
+        const mainTitle = document.querySelector('.reservation-title');
+        if(mainTitle) mainTitle.style.display = 'block';
 
         [step1Ind, step2Ind, step3Ind].forEach(el => {
             if(el) {
@@ -161,8 +166,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            alert("Reservation Successful!");
-            closeModal(); 
+            const successNameSpan = document.getElementById('successName');
+            if(successNameSpan) successNameSpan.innerText = fname;
+
+            window.goToStep4();
         });
     }
 
@@ -235,6 +242,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    window.goToStep4 = function () {
+        document.getElementById('step3-container').style.display = 'none';
+        document.getElementById('step4-container').style.display = 'block';
+
+        const i3 = document.getElementById('step3-indicator');
+        
+        if(i3) { 
+            i3.classList.remove('active'); 
+            i3.querySelector('.step-circle').innerHTML = '<i class="fa-solid fa-check"></i>'; 
+        }
+
+        // Hide title
+        const mainTitle = document.querySelector('.reservation-title');
+        if(mainTitle && mainTitle.innerText === "BOOK YOUR TABLE") {
+            mainTitle.style.display = 'none';
+        }
+    }
+
     window.goBackToStep1 = function () {
         if(IS_SINGLE_BRANCH) return; 
 
@@ -260,4 +285,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if(i3) { i3.classList.remove('active'); i3.querySelector('.step-circle').innerHTML = IS_SINGLE_BRANCH ? '2' : '3'; }
     }
+    // window.closeModal = closeModal;
 });
