@@ -614,6 +614,10 @@ body {
     transform: translate(50%, -50%);
 }
 
+/* ====================================================== */
+/* === PHẦN RESERVATION (DESKTOP & CHUNG) === */
+/* ====================================================== */
+
 .reservation-section {
     background-color: #65432A;
     padding: 100px 0;
@@ -641,6 +645,7 @@ body {
     letter-spacing: 1px;
 }
 
+/* Decor Ngôi sao */
 .card-decor {
     position: absolute;
     top: 50%;
@@ -649,25 +654,35 @@ body {
     height: 40px;
     z-index: 2;
 }
-
-.decor-left {
-    left: -20px;
-}
-
-.decor-right {
-    right: -20px;
-}
-
+.decor-left { left: -20px; }
+.decor-right { right: -20px; }
 .card-decor img {
     width: 100%;
     height: auto;
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
 }
 
+/* === LAYOUT FORM (2 Hàng - 2 Cột) === */
+
+/* Wrapper chính */
+.booking-group-wrapper {
+    display: flex;
+    background-color: #F2EFE9;
+    border: 1px solid #8C8C8C;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Khi có class flex-column -> Xếp dọc 2 hàng */
 .booking-group-wrapper.flex-column {
-    flex-direction: column !important;
-    /* Xếp dọc 2 hàng */
+    flex-direction: column !important; 
     padding: 0;
+}
+
+/* Chia đôi chiều rộng: mỗi ô 50% */
+.w-50 {
+    width: 50%;
+    flex: 0 0 50%;
 }
 
 /* Đường gạch ngang phân cách Hàng 1 và Hàng 2 */
@@ -680,13 +695,64 @@ body {
     border-right: 1px solid #8C8C8C;
 }
 
-/* Đảm bảo các ô input chiếm 50% chiều rộng */
-.w-50 {
-    width: 50%;
-    flex: 0 0 50%;
+/* Từng ô input */
+.booking-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    /* Không dùng border-right mặc định nữa vì đã có class riêng */
+    position: relative;
+    transition: background-color 0.2s;
+    height: 60px; /* Tăng chiều cao lên 60px cho thoáng (Desktop) */
 }
 
-/* Nút bấm */
+.booking-item:hover {
+    background-color: #e8e4dc;
+}
+
+/* Icon */
+.booking-icon {
+    position: absolute;
+    left: 25px;
+    color: #1A1A1A;
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Input & Select Reset */
+.booking-input-reset {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    padding-left: 60px; /* Cách icon */
+    padding-right: 20px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Mũi tên Select */
+select.booking-input-reset {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235E4032' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 25px center;
+    background-size: 16px;
+}
+
+/* Nút Check Availability */
 .btn-check-availability {
     display: block;
     width: 100%;
@@ -706,82 +772,9 @@ body {
 
 .btn-check-availability:hover {
     background-color: #5E4032;
-    color: #fff;
 }
 
-/* Các ô input Step 1 */
-.booking-group-wrapper.form-control-custom {
-    display: flex;
-    padding: 0;
-    background-color: #F2EFE9;
-    border: 1px solid #8C8C8C;
-    align-items: stretch;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.booking-item {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    border-right: 1px solid #8C8C8C;
-    position: relative;
-    transition: background-color 0.2s;
-    height: 50px;
-}
-
-.booking-item:hover {
-    background-color: #e8e4dc;
-}
-
-.booking-item.no-border {
-    border-right: none;
-}
-
-.booking-icon {
-    position: absolute;
-    left: 25px;
-    color: #1A1A1A;
-    font-size: 18px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.booking-input-reset {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
-    outline: none;
-    box-sizing: border-box;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-    padding-left: 60px;
-    padding-right: 20px;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-select.booking-input-reset {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235E4032' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 25px center;
-    background-size: 16px;
-}
-
-input#datePicker.booking-input-reset {
-    background-image: none;
-}
-
-/* Time Slots */
+/* Các nút chọn giờ (Time Slots) */
 .available-times-container {
     margin-top: 20px;
     display: flex;
@@ -811,10 +804,11 @@ input#datePicker.booking-input-reset {
     transform: translateY(-2px);
 }
 
-/* Custom Lịch */
+/* Custom Lịch (Flatpickr) */
 .flatpickr-calendar {
     font-family: 'Bricolage Grotesque', sans-serif;
     border: 1px solid #8C8C8C;
+    z-index: 99999 !important; /* Đảm bảo nổi lên trên Popup */
 }
 
 .flatpickr-day.selected,
@@ -829,19 +823,16 @@ input#datePicker.booking-input-reset {
 }
 
 .flatpickr-month .flatpickr-prev-month:hover svg,
-.flatpickr-month .flatpickr-next-month:hover svg,
-.flatpickr-month .flatpickr-prev-month:focus svg,
-.flatpickr-month .flatpickr-next-month:focus svg {
+.flatpickr-month .flatpickr-next-month:hover svg {
     fill: #5E4032 !important;
 }
 
-/* === PHẦN MỚI: STEP INDICATOR (THANH BƯỚC 1 - 2) === */
+/* === THANH STEP INDICATOR (BƯỚC 1 - 2) === */
 .steps-header {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    /* Khoảng cách giữa 2 bước */
     font-family: 'Bricolage Grotesque', sans-serif;
 }
 
@@ -849,7 +840,6 @@ input#datePicker.booking-input-reset {
     display: flex;
     align-items: center;
     color: #999;
-    /* Màu xám cho bước chưa active */
     font-weight: 600;
     font-size: 14px;
 }
@@ -867,7 +857,6 @@ input#datePicker.booking-input-reset {
     font-size: 14px;
 }
 
-/* Trạng thái Active (Màu Nâu) */
 .step-item.active {
     color: #1A1A1A;
     font-weight: 700;
@@ -875,18 +864,15 @@ input#datePicker.booking-input-reset {
 
 .step-item.active .step-circle {
     background-color: #5E4032;
-    /* Nền nâu */
     border-color: #5E4032;
     color: #fff;
-    /* Số màu trắng */
 }
 
-/* === PHẦN MỚI: STEP 2 FORM STYLE === */
+/* === STEP 2 FORM STYLE === */
 .form-control-step2 {
     width: 100%;
     padding: 15px;
     background-color: #F2EFE9;
-    /* Giống màu nền step 1 */
     border: 1px solid #8C8C8C;
     border-radius: 4px;
     font-family: 'Bricolage Grotesque', sans-serif;
@@ -896,10 +882,36 @@ input#datePicker.booking-input-reset {
     transition: 0.3s;
 }
 
+.custom-checkbox-input {
+    display: none;
+}
+
+/* Định dạng mặc định cho icon (khi chưa tick) */
+.custom-checkbox-icon {
+    font-size: 16px;       /* Kích thước icon */
+    color: #8C8C8C;        /* Màu xám khi chưa chọn */
+    margin-right: 8px;     /* Khoảng cách với chữ */
+    min-width: 16px;       /* Đảm bảo icon không bị méo */
+    transition: all 0.2s;  /* Hiệu ứng mượt */
+}
+
+/* KHI ĐƯỢC TICK: Đổi icon và màu sắc */
+/* Sử dụng pseudo-element của FontAwesome để đổi icon */
+.custom-checkbox-input:checked + label .custom-checkbox-icon::before {
+    content: "\f058";      /* Mã Unicode của icon fa-check-circle */
+    font-family: "Font Awesome 6 Free"; /* Hoặc "Font Awesome 5 Free" tùy phiên bản bạn dùng */
+    font-weight: 900;      /* Solid style */
+    color: #5E4032;        /* Màu nâu giống yêu cầu */
+}
+
+/* Đảm bảo khi tick thì class gốc (circle) bị ghi đè hiển thị */
+.custom-checkbox-input:checked + label .custom-checkbox-icon {
+    color: #5E4032;
+}
+
 .form-control-step2:focus {
     background-color: #fff;
     border-color: #5E4032;
-    /* Focus màu nâu */
 }
 
 .back-link {
@@ -919,7 +931,6 @@ input#datePicker.booking-input-reset {
     font-size: 16px;
     color: #1A1A1A;
     background: rgba(94, 64, 50, 0.1);
-    /* Nền nâu rất nhạt */
     padding: 10px;
     border-radius: 4px;
 }
@@ -2018,7 +2029,6 @@ input#datePicker.booking-input-reset {
         height: 40px !important;
         /* Giảm chiều cao xuống tối thiểu */
         padding: 0;
-        border-bottom: none !important;
         /* Xóa border thừa của mobile cũ */
     }
 

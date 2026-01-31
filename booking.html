@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hestia Hearth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<section class="reservation-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9">
+                <div class="reservation-card">
+                    <div class="card-decor decor-left"><img src="assets/images/star2.png" alt="✦"></div>
+                    <div class="card-decor decor-right"><img src="assets/images/star2.png" alt="✦"></div>
+
+                    <div class="steps-header mb-4">
+                        <div class="step-item active" id="step1-indicator">
+                            <span class="step-circle">1</span>
+                            <span class="step-text">Find a table</span>
+                        </div>
+                        <div class="step-item" id="step2-indicator">
+                            <span class="step-circle">2</span>
+                            <span class="step-text">Add your details</span>
+                        </div>
+                    </div>
+
+                    <h2 class="reservation-title">BOOK YOUR TABLE</h2>
+
+                    <form action="#" class="reservation-form" id="bookingForm">
+
+                        <div id="step1-container">
+                            <div class="booking-group-wrapper form-control-custom flex-column">
+
+                                <div class="d-flex w-100 border-bottom-custom">
+                                    <div class="booking-item w-50 border-right-custom">
+                                        <div class="booking-icon"><i class="fa-regular fa-calendar"></i></div>
+                                        <input type="text" id="datePicker" class="booking-input-reset"
+                                            placeholder="Select Date">
+                                    </div>
+                                    <div class="booking-item w-50">
+                                        <div class="booking-icon"><i class="fa-regular fa-clock"></i></div>
+                                        <select id="timePicker" class="booking-input-reset"></select>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex w-100">
+                                    <div class="booking-item w-50 border-right-custom">
+                                        <div class="booking-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                        <select id="locationPicker" class="booking-input-reset">
+                                            <option value="1">Branch 1 (Hanoi)</option>
+                                            <option value="2">Branch 2 (Da Nang)</option>
+                                            <option value="3">Branch 3 (Saigon)</option>
+                                        </select>
+                                    </div>
+                                    <div class="booking-item w-50">
+                                        <div class="booking-icon"><i class="fa-regular fa-user"></i></div>
+                                        <select id="peoplePicker" class="booking-input-reset"></select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <button type="button" id="btnCheck" class="btn-check-availability">CHECK
+                                    AVAILABILITY</button>
+                            </div>
+
+                            <div class="available-times-container" id="availableTimes" style="display: none;">
+                                <div class="w-100 text-center mb-2"
+                                    style="font-family:'Bricolage Grotesque'; font-size:14px; color:#666;">Select a
+                                    time to proceed:</div>
+                                <button type="button" class="time-slot-btn">18:30</button>
+                                <button type="button" class="time-slot-btn">18:45</button>
+                                <button type="button" class="time-slot-btn">19:00</button>
+                                <button type="button" class="time-slot-btn">19:15</button>
+                                <button type="button" class="time-slot-btn">19:30</button>
+                            </div>
+                        </div>
+
+                        <div id="step2-container" style="display: none;">
+                            <div class="mb-3">
+                                <a href="javascript:void(0)" class="back-link" onclick="goBackToStep1()"
+                                    style="color: #5E4032; text-decoration: none; font-weight: 600;">
+                                    <i class="fa-solid fa-arrow-left me-2"></i> Change Selection
+                                </a>
+                            </div>
+
+                            <div class="selected-summary mb-4"
+                                style="background: rgba(94, 64, 50, 0.1); padding: 10px; border-radius: 4px; margin-bottom: 20px;">
+                                <i class="fa-solid fa-check-circle me-2" style="color: #5E4032;"></i>
+                                <span id="summaryText" style="font-weight: 600; color: #1A1A1A;"></span>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" id="inputFName" class="form-control-step2"
+                                        placeholder="First Name *"
+                                        style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="inputLName" class="form-control-step2"
+                                        placeholder="Last Name *"
+                                        style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" id="inputEmail" class="form-control-step2"
+                                        placeholder="Email Address *"
+                                        style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" id="inputPhone" class="form-control-step2"
+                                        placeholder="Phone Number *"
+                                        style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control-step2" rows="2"
+                                        placeholder="Special Request (Optional)"
+                                        style="width: 100%; padding: 12px; border: 1px solid #8C8C8C; border-radius: 4px;"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-3 text-start">
+                                <p
+                                    style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; color: #000; margin-bottom: 5px;">
+                                    By clicking ‘Complete reservation’, you agree to our Terms of Use and
+                                    <a href="#" style="color: #5E4032; text-decoration: none; font-weight: 700;">Privacy
+                                        Policy</a>.
+                                </p>
+                            </div>
+
+                            <div class="col-12 mt-2">
+                                <button type="button" id="btnComplete" class="btn-check-availability">COMPLETE
+                                    RESERVATION</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
