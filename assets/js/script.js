@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if(backBtnStep2) backBtnStep2.style.display = 'inline-block';
         }
     }
+
+    window.initReservationFlow = initReservationFlow;
     initReservationFlow();
 
     const toggleBtn = document.getElementById('toggleBranchModeBtn');
@@ -285,5 +287,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if(i3) { i3.classList.remove('active'); i3.querySelector('.step-circle').innerHTML = IS_SINGLE_BRANCH ? '2' : '3'; }
     }
-    // window.closeModal = closeModal;
+
+    window.resetBooking = function () {
+        const form = document.getElementById('bookingForm');
+        if (form) form.reset();
+
+        const summary = document.getElementById('summaryText');
+        if (summary) summary.innerText = '';
+
+        document.getElementById('step4-container').style.display = 'none';
+
+        const mainTitle = document.querySelector('.reservation-title');
+        if (mainTitle) mainTitle.style.display = 'block';
+
+        if (window.initReservationFlow) {
+            window.initReservationFlow();
+        }
+    }
 });
