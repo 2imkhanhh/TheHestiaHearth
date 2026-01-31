@@ -614,10 +614,6 @@ body {
     transform: translate(50%, -50%);
 }
 
-/* ====================================================== */
-/* === PHẦN RESERVATION (DESKTOP & CHUNG) === */
-/* ====================================================== */
-
 .reservation-section {
     background-color: #65432A;
     padding: 100px 0;
@@ -645,7 +641,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Decor Ngôi sao */
 .card-decor {
     position: absolute;
     top: 50%;
@@ -662,9 +657,6 @@ body {
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
 }
 
-/* === LAYOUT FORM (2 Hàng - 2 Cột) === */
-
-/* Wrapper chính */
 .booking-group-wrapper {
     display: flex;
     background-color: #F2EFE9;
@@ -673,45 +665,38 @@ body {
     overflow: hidden;
 }
 
-/* Khi có class flex-column -> Xếp dọc 2 hàng */
 .booking-group-wrapper.flex-column {
     flex-direction: column !important; 
     padding: 0;
 }
 
-/* Chia đôi chiều rộng: mỗi ô 50% */
 .w-50 {
     width: 50%;
     flex: 0 0 50%;
 }
 
-/* Đường gạch ngang phân cách Hàng 1 và Hàng 2 */
 .border-bottom-custom {
     border-bottom: 1px solid #8C8C8C;
 }
 
-/* Đường gạch dọc phân cách 2 ô trên cùng 1 hàng */
 .border-right-custom {
     border-right: 1px solid #8C8C8C;
 }
 
-/* Từng ô input */
 .booking-item {
     flex: 1;
     display: flex;
     align-items: center;
     padding: 20px;
-    /* Không dùng border-right mặc định nữa vì đã có class riêng */
     position: relative;
     transition: background-color 0.2s;
-    height: 60px; /* Tăng chiều cao lên 60px cho thoáng (Desktop) */
+    height: 60px; 
 }
 
 .booking-item:hover {
     background-color: #e8e4dc;
 }
 
-/* Icon */
 .booking-icon {
     position: absolute;
     left: 25px;
@@ -721,7 +706,6 @@ body {
     z-index: 1;
 }
 
-/* Input & Select Reset */
 .booking-input-reset {
     width: 100%;
     height: 100%;
@@ -733,7 +717,7 @@ body {
     font-size: 16px;
     color: #333;
     font-weight: 600;
-    padding-left: 60px; /* Cách icon */
+    padding-left: 60px; 
     padding-right: 20px;
     cursor: pointer;
     -webkit-appearance: none;
@@ -744,7 +728,6 @@ body {
     text-overflow: ellipsis;
 }
 
-/* Mũi tên Select */
 select.booking-input-reset {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235E4032' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
@@ -752,7 +735,6 @@ select.booking-input-reset {
     background-size: 16px;
 }
 
-/* Nút Check Availability */
 .btn-check-availability {
     display: block;
     width: 100%;
@@ -774,7 +756,6 @@ select.booking-input-reset {
     background-color: #5E4032;
 }
 
-/* Các nút chọn giờ (Time Slots) */
 .available-times-container {
     margin-top: 20px;
     display: flex;
@@ -804,11 +785,10 @@ select.booking-input-reset {
     transform: translateY(-2px);
 }
 
-/* Custom Lịch (Flatpickr) */
 .flatpickr-calendar {
     font-family: 'Bricolage Grotesque', sans-serif;
     border: 1px solid #8C8C8C;
-    z-index: 99999 !important; /* Đảm bảo nổi lên trên Popup */
+    z-index: 99999 !important; 
 }
 
 .flatpickr-day.selected,
@@ -827,7 +807,6 @@ select.booking-input-reset {
     fill: #5E4032 !important;
 }
 
-/* === THANH STEP INDICATOR (BƯỚC 1 - 2) === */
 .steps-header {
     display: flex;
     justify-content: center;
@@ -868,7 +847,7 @@ select.booking-input-reset {
     color: #fff;
 }
 
-/* === STEP 2 FORM STYLE === */
+/* === STEP 2 === */
 .form-control-step2 {
     width: 100%;
     padding: 15px;
@@ -886,25 +865,21 @@ select.booking-input-reset {
     display: none;
 }
 
-/* Định dạng mặc định cho icon (khi chưa tick) */
 .custom-checkbox-icon {
-    font-size: 16px;       /* Kích thước icon */
-    color: #8C8C8C;        /* Màu xám khi chưa chọn */
-    margin-right: 8px;     /* Khoảng cách với chữ */
-    min-width: 16px;       /* Đảm bảo icon không bị méo */
-    transition: all 0.2s;  /* Hiệu ứng mượt */
+    font-size: 16px;       
+    color: #8C8C8C;       
+    margin-right: 8px;    
+    min-width: 16px;       
+    transition: all 0.2s; 
 }
 
-/* KHI ĐƯỢC TICK: Đổi icon và màu sắc */
-/* Sử dụng pseudo-element của FontAwesome để đổi icon */
 .custom-checkbox-input:checked + label .custom-checkbox-icon::before {
-    content: "\f058";      /* Mã Unicode của icon fa-check-circle */
-    font-family: "Font Awesome 6 Free"; /* Hoặc "Font Awesome 5 Free" tùy phiên bản bạn dùng */
-    font-weight: 900;      /* Solid style */
-    color: #5E4032;        /* Màu nâu giống yêu cầu */
+    content: "\f058";     
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900;    
+    color: #5E4032;        
 }
 
-/* Đảm bảo khi tick thì class gốc (circle) bị ghi đè hiển thị */
 .custom-checkbox-input:checked + label .custom-checkbox-icon {
     color: #5E4032;
 }
@@ -1587,8 +1562,6 @@ select.booking-input-reset {
 }
 
 @media (max-width: 991px) {
-
-    /* === MENU MOBILE (GIỮ NGUYÊN CỦA BẠN) === */
     .navbar-collapse {
         position: fixed;
         top: 0;
@@ -1683,7 +1656,6 @@ select.booking-input-reset {
         content: none !important;
     }
 
-    /* === CÁC SECTION KHÁC (GIỮ NGUYÊN) === */
     .hero-indicators {
         bottom: 26px;
         left: 9%;
@@ -1951,10 +1923,6 @@ select.booking-input-reset {
         font-size: 1.5rem;
     }
 
-    /* ====================================================== */
-    /* === PHẦN RESERVATION ĐÃ ĐƯỢC CHỈNH SỬA NHỎ GỌN === */
-    /* ====================================================== */
-
     .reservation-section {
         padding: 30px 0;
     }
@@ -1973,16 +1941,13 @@ select.booking-input-reset {
 
     .reservation-card {
         padding: 20px 10px;
-        /* Padding nhỏ để tận dụng diện tích ngang */
     }
 
     .reservation-title {
         font-size: 20px;
-        /* Tiêu đề nhỏ lại */
         margin-bottom: 15px;
     }
 
-    /* Thanh Step 1 - 2 */
     .steps-header {
         gap: 10px;
         margin-bottom: 15px !important;
@@ -1999,60 +1964,44 @@ select.booking-input-reset {
         font-size: 11px;
     }
 
-    /* --- LAYOUT FORM: GIỮ NGUYÊN 2 CỘT NHƯ MÁY TÍNH --- */
-
-    /* Ép hiển thị hàng ngang (Row) thay vì dọc */
     .booking-group-wrapper .d-flex.w-100 {
         flex-direction: row !important;
     }
 
-    /* Mỗi ô chiếm đúng 50% chiều rộng */
     .booking-group-wrapper .w-50 {
         width: 50% !important;
         flex: 0 0 50% !important;
     }
 
-    /* Khôi phục đường kẻ ngăn cách giữa 2 ô cùng hàng */
     .border-right-custom {
         border-right: 1px solid #8C8C8C !important;
         border-bottom: none !important;
     }
 
-    /* Khôi phục đường kẻ ngang ngăn cách 2 hàng */
     .border-bottom-custom {
         border-bottom: 1px solid #8C8C8C !important;
     }
 
-    /* --- CÁC Ô CHỌN (INPUT) SIÊU NHỎ GỌN --- */
-
     .booking-item {
         height: 40px !important;
-        /* Giảm chiều cao xuống tối thiểu */
         padding: 0;
-        /* Xóa border thừa của mobile cũ */
     }
 
-    /* Icon nhỏ và sát lề trái */
     .booking-icon {
         font-size: 12px !important;
         left: 8px !important;
     }
 
-    /* Chữ bên trong nhỏ lại */
     .booking-input-reset {
         font-size: 11px !important;
         padding-left: 28px !important;
-        /* Thụt lề vừa đủ tránh icon */
         padding-right: 2px !important;
     }
 
-    /* Mũi tên select nhỏ lại */
     select.booking-input-reset {
         background-size: 8px !important;
         background-position: right 4px center !important;
     }
-
-    /* --- NÚT BẤM & CÁC THÀNH PHẦN KHÁC --- */
 
     .btn-check-availability {
         padding: 10px;
@@ -2060,7 +2009,6 @@ select.booking-input-reset {
         margin-top: 10px !important;
     }
 
-    /* Các nút chọn giờ khi hiện ra */
     .available-times-container {
         gap: 5px !important;
         margin-top: 10px;
@@ -2072,7 +2020,6 @@ select.booking-input-reset {
         min-width: 50px !important;
     }
 
-    /* Form điền thông tin (Step 2) */
     .form-control-step2 {
         padding: 8px;
         font-size: 12px;
@@ -2082,11 +2029,8 @@ select.booking-input-reset {
         font-size: 14px;
     }
 
-    /* --- MODAL POPUP & LỊCH --- */
-
     .modal-overlay {
         align-items: flex-start !important;
-        /* Đẩy modal lên trên để lịch mở xuống dưới không bị che */
         padding-top: 20px !important;
     }
 
@@ -2101,24 +2045,20 @@ select.booking-input-reset {
         font-size: 24px;
     }
 
-    /* Thu nhỏ bảng lịch (Flatpickr) */
     .flatpickr-calendar {
         transform: scale(0.85) !important;
-        /* Thu nhỏ còn 85% */
         transform-origin: top center !important;
         left: 50% !important;
         margin-left: -164px !important;
-        /* Căn giữa lại vì bị scale (328px * 0.5) */
         margin-top: -5px !important;
     }
 
     select.booking-input-reset option {
-        font-size: 10px !important; /* Chữ trong danh sách xổ xuống nhỏ lại */
-        padding: 5px !important;    /* Giảm khoảng cách giữa các dòng */
+        font-size: 10px !important; 
+        padding: 5px !important;    
     }
     
-    /* Hack nhỏ để ép một số trình duyệt mobile hiển thị menu nhỏ hơn */
     select.booking-input-reset:focus {
-        font-size: 12px !important; /* Tránh tính năng tự zoom của iPhone */
+        font-size: 12px !important;
     }
 }
