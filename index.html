@@ -567,42 +567,82 @@
             const row = document.getElementById('signatureRow');
             const btnPrev = document.getElementById('btnSigPrev');
             const btnNext = document.getElementById('btnSigNext');
+
+            const sliderContainer = document.querySelector('.slider-container');
+
             let isAnimating = false;
+            let autoPlayInterval;
+            const autoPlayDelay = 3000; 
 
             if (row && btnPrev && btnNext) {
-                function getMovePercentage() { return window.innerWidth >= 992 ? (100 / 3) : 100; }
+                function getMovePercentage() {
+                    return window.innerWidth >= 992 ? (100 / 3) : 100;
+                }
 
-                btnNext.addEventListener('click', function () {
+                function moveNext() {
                     if (isAnimating) return;
                     isAnimating = true;
                     const movePercent = getMovePercentage();
                     row.style.transition = "transform 0.4s ease-in-out";
                     row.style.transform = `translateX(-${movePercent}%)`;
+
                     setTimeout(() => {
                         row.style.transition = "none";
                         row.appendChild(row.firstElementChild);
                         row.style.transform = "translateX(0)";
                         isAnimating = false;
                     }, 400);
-                });
+                }
 
-                btnPrev.addEventListener('click', function () {
+                function movePrev() {
                     if (isAnimating) return;
                     isAnimating = true;
                     const movePercent = getMovePercentage();
                     row.style.transition = "none";
                     row.prepend(row.lastElementChild);
                     row.style.transform = `translateX(-${movePercent}%)`;
+
                     setTimeout(() => {
                         row.style.transition = "transform 0.4s ease-in-out";
                         row.style.transform = "translateX(0)";
                         setTimeout(() => { isAnimating = false; }, 400);
                     }, 20);
+                }
+
+                btnNext.addEventListener('click', () => {
+                    stopAutoPlay(); 
+                    moveNext();
+                    startAutoPlay(); 
                 });
+
+                btnPrev.addEventListener('click', () => {
+                    stopAutoPlay();
+                    movePrev();
+                    startAutoPlay();
+                });
+
+                function startAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = setInterval(moveNext, autoPlayDelay);
+                }
+
+                function stopAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                }
+
+                startAutoPlay();
+
+                if (sliderContainer) {
+                    sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+                    sliderContainer.addEventListener('mouseleave', startAutoPlay);
+                }
             }
 
             window.addEventListener('resize', function () {
-                if (row) { row.style.transition = "none"; row.style.transform = "translateX(0)"; }
+                if (row) {
+                    row.style.transition = "none";
+                    row.style.transform = "translateX(0)";
+                }
             });
         });
     </script>
