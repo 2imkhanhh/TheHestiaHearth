@@ -25,7 +25,7 @@ body {
 }
 
 .logo-img {
-    max-height: 65px;
+    max-height: 60px;
     width: auto;
     object-fit: contain;
 }
@@ -1693,7 +1693,7 @@ select.booking-input-reset {
         justify-content: center !important;
         align-items: flex-end !important;
         position: relative;
-        margin-top: 40px !important;
+        margin-top: -80px !important;
         padding: 0 !important;
         width: 100% !important;
         min-height: 350px;
@@ -1726,7 +1726,7 @@ select.booking-input-reset {
     .arch-img {
         position: absolute !important;
         z-index: 20;
-        left: 50%;
+        left: 55%;
         bottom: 0;
         transform: translate(-50%, 10%) !important;
         width: 65%;
